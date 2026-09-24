@@ -65,8 +65,10 @@ jobs:
       - name: Install
         run: ${{ matrix.pm == 'pnpm' && 'pnpm install --frozen-lockfile' || 'npm ci' }}
 
-      - name: Check
-        run: ${{ matrix.check }}
-
+      # Build first: Next.js writes next-env.d.ts (gitignored) during the
+      # build, and the typecheck needs it for image imports.
       - name: Build
         run: ${{ matrix.build }}
+
+      - name: Check
+        run: ${{ matrix.check }}
