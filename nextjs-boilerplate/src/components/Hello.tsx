@@ -3,9 +3,15 @@
 import { getTranslations } from 'next-intl/server';
 import { redirect } from 'next/navigation';
 import { bb } from '@/libs/BuildBase';
+import { Env } from '@/libs/Env';
 
 export const Hello = async () => {
   const t = await getTranslations('Dashboard');
+  // Not connected yet: the layout shows the setup steps, and there is no
+  // user to read. This also keeps the build from needing the env.
+  if (!Env.NEXT_PUBLIC_BUILDBASE_ORG_ID) {
+    return null;
+  }
   // The proxy only checks that the cookie exists; this proves it is valid.
   const user = await bb()
     .users.getProfile()
