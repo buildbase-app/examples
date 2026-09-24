@@ -139,7 +139,7 @@ Based on [ixartz/Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerpl
 ## Before you start
 
 - **Setup time is honest.** Only `with-buildbase` is a five-minute job. The others need console steps (Stripe test keys, plans, credit packages, a workflow), each written out in its README.
-- **Redirect URLs must be exact.** Register `http://localhost:3000/...` and your deployed domain on the auth client; wildcards like `*.vercel.app` are not accepted.
+- **Redirect URLs must be exact.** Register `http://localhost:3000/...` and your deployed domain on the auth client; A wildcard can only stand in for one leftmost subdomain on a domain you own, so `*.vercel.app` is not accepted.
 - **BuildBase does not run your models.** LLM calls, image generation and chat storage come from each app's own stack; BuildBase handles who the user is, which workspace they are in, and what they have paid for.
 
 ## Credits and licences

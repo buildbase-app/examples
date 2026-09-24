@@ -11,7 +11,7 @@
 | "Logout everywhere" across this app's sessions                | Ends every BuildBase session too, on every device                                                  |
 | -                                                             | A workspace per user on first sign-in, and credits, read with the server SDK                       |
 
-About 2,000 lines of app code are gone: `controllers/user.js` and `controllers/webauthn.js`, 1,384 lines between them, are now one 240-line `user.js`, the user model lost its password, token, 2FA and passkey fields, and seven views are deleted. `passport-local`, `@simplewebauthn/*`, `otpauth`, `qr`, `@node-rs/bcrypt` and `mailchecker` are out; `@buildbase/sdk` is in. The API and AI examples are upstream's, untouched.
+About 2,000 lines of app code are gone: `controllers/user.js` and `controllers/webauthn.js`, 1,384 lines between them, are now one `user.js` of about 240 lines, the user model lost its password, token, 2FA and passkey fields, and seven views are deleted. `passport-local`, `@simplewebauthn/*`, `otpauth`, `qr`, `@node-rs/bcrypt` and `mailchecker` are out; `@buildbase/sdk` is in. The API and AI examples are upstream's, untouched.
 
 ## See it working
 
