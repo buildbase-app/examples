@@ -48,6 +48,16 @@ Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · 
 
 Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.5k★, MIT) · React Router v7 · about 10 minutes
 
+## TanStack Start
+
+### [start-ui-web](start-ui-web)
+
+<a href="start-ui-web"><img src=".github/media/start-ui-web.png" alt="start-ui-web: see it working" width="720"></a>
+
+**BuildBase next to an existing auth library.** Start UI's email one-time code and GitHub sign-in replaced by BuildBase through a small better-auth plugin, so its sessions, admin screens and oRPC permission checks keep working. The React SDK's account screens sit on the account page.
+
+Based on [BearStudio/start-ui-web](https://github.com/BearStudio/start-ui-web) (1.7k★, MIT) · TanStack Start · about 10 minutes
+
 ## Teams, roles and billing
 
 ### [saas-starter](saas-starter)

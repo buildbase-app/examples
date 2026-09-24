@@ -58,6 +58,11 @@ jobs:
             pm: npm
             build: npm run build
             check: npm run lint && npm test
+          - example: start-ui-web
+            pm: pnpm
+            # The env is validated at build time; the example values are enough.
+            build: cp .env.example .env && pnpm build
+            check: pnpm lint:ts && pnpm lint:oxlint && pnpm vitest run --project unit
           - example: admin-dashboard
             pm: pnpm
             check: pnpm lint && pnpm knip

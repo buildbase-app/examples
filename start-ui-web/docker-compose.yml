@@ -1,0 +1,81 @@
+# Modified from BearStudio/start-ui-web: no maildev; BuildBase sends sign-in email.
+services:
+  postgres:
+    image: postgres:16.1
+    env_file:
+      - .env
+    ports:
+      - '${DOCKER_DATABASE_PORT:-5432}:5432'
+    environment:
+      POSTGRES_DB: $DOCKER_DATABASE_NAME
+      POSTGRES_USER: $DOCKER_DATABASE_USERNAME
+      POSTGRES_PASSWORD: $DOCKER_DATABASE_PASSWORD
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $DOCKER_DATABASE_NAME']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  s3:
+    image: ghcr.io/versity/versitygw:v1.8.0
+    ports:
+      - '${DOCKER_S3_PORT:-7070}:7070'
+      - '${DOCKER_S3_UI_PORT:-7071}:7071'
+    environment:
+      ROOT_ACCESS_KEY: ${S3_ACCESS_KEY_ID}
+      ROOT_SECRET_KEY: ${S3_SECRET_ACCESS_KEY}
+      VGW_BACKEND: posix
+      VGW_BACKEND_ARGS: /data/s3
+      VGW_PORT: ':7070'
+      VGW_WEBUI_PORT: ':7071'
+      # The web UI runs in the browser: point it at the host-published S3 port
+      VGW_WEBUI_GATEWAYS: http://localhost:${DOCKER_S3_PORT:-7070}
+      VGW_HEALTH: /health
+      # Must match S3_REGION used by the app to sign requests (default: auto)
+      VGW_REGION: ${S3_REGION:-auto}
+      # Allow browser presigned PUT uploads from any local origin (dev only)
+      VGW_CORS_ALLOW_ORIGIN: '*'
+    volumes:
+      - s3:/data/s3
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:7070/health']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  s3-init:
+    image: amazon/aws-cli:2.36.44
+    profiles:
+      - init
+    depends_on:
+      s3:
+        condition: service_healthy
+    environment:
+      AWS_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${S3_REGION:-auto}
+      AWS_ENDPOINT_URL: http://s3:7070
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+    entrypoint: ['']
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        aws s3api head-bucket --bucket "$$S3_BUCKET_NAME" 2>/dev/null \
+          || aws s3api create-bucket --bucket "$$S3_BUCKET_NAME"
+        # Anonymous read on objects only (book covers are served with <img src>)
+        aws s3api put-bucket-policy --bucket "$$S3_BUCKET_NAME" --policy "{
+          \"Version\": \"2012-10-17\",
+          \"Statement\": [{
+            \"Effect\": \"Allow\",
+            \"Principal\": \"*\",
+            \"Action\": \"s3:GetObject\",
+            \"Resource\": \"arn:aws:s3:::$$S3_BUCKET_NAME/*\"
+          }]
+        }"
+        echo 'Bucket configuration completed successfully'
+    restart: 'no'
+
+volumes:
+  s3:

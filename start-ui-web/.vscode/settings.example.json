@@ -1,0 +1,25 @@
+{
+  // Use the workspace TypeScript 7 (native) compiler for the editor language
+  // service, so the IDE and `pnpm lint:ts` report the exact same errors.
+  // Requires the "TypeScript 7" extension (TypeScriptTeam.native-preview).
+  "js/ts.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "./node_modules/typescript",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "i18n-ally.localesPaths": ["src/locales"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": ["general", "react", "i18next"],
+  "i18n-ally.namespace": true,
+  "i18n-ally.defaultNamespace": "common",
+  "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.keysInUse": ["common.languages.*"],
+  "files.readonlyInclude": {
+    "**/*.gen.ts": true,
+    "**/generated/**/*": true
+  }
+}
