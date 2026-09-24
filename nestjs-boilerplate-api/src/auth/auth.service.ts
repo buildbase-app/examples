@@ -26,8 +26,8 @@ export class AuthService {
     private readonly buildbase: BuildBaseService,
   ) {}
 
-  signInUrl(redirectUrl: string): Promise<string> {
-    return this.buildbase.signInUrl(redirectUrl);
+  signInUrl(redirectUrl: string, state?: string): Promise<string> {
+    return this.buildbase.signInUrl(redirectUrl, state);
   }
 
   /** Exchange the hosted page's code; the session ID is the API token. */

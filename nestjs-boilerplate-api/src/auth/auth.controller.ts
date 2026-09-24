@@ -64,11 +64,18 @@ export class AuthController {
     description:
       'Where the hosted page returns with ?code=. Must be registered on your BuildBase auth client.',
   })
+  @ApiQuery({
+    name: 'state',
+    required: false,
+    description:
+      'A random value the client keeps and compares when the hosted page returns with it, so a sign-in it did not start is refused.',
+  })
   @ApiOkResponse({ type: SignInUrlResponseDto })
   async signInUrl(
     @Query('redirect') redirect: string,
+    @Query('state') state?: string,
   ): Promise<SignInUrlResponseDto> {
-    return { url: await this.service.signInUrl(redirect) };
+    return { url: await this.service.signInUrl(redirect, state) };
   }
 
   @SerializeOptions({

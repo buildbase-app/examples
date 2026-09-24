@@ -32,7 +32,7 @@ Recorded against a local BuildBase stack on Postgres; still stretches are shorte
 
 An API has no pages, so the client drives it. Upstream's `POST /auth/email/login` becomes:
 
-1. **`GET /api/v1/auth/buildbase/url?redirect=<your page>`** returns `{ url }`, BuildBase's hosted sign-in page. Send the person there.
+1. **`GET /api/v1/auth/buildbase/url?redirect=<your page>&state=<random>`** returns `{ url }`, BuildBase's hosted sign-in page. Send the person there. Keep the `state` and compare it when the page returns, so a sign-in your client did not start is refused.
 2. The hosted page returns to your page with `?code=`. Post it to **`POST /api/v1/auth/buildbase/login`** `{ code }`.
 3. The API exchanges the code with the client secret, finds the user by BuildBase ID (the way upstream's social login used `socialId`), adopts one with the same email, or creates one with the `user` role. It answers `{ token, user }`.
 4. Send `Authorization: Bearer <token>` from then on. **`BuildBaseAuthGuard`** asks BuildBase who the session belongs to (cached for a minute) and sets `request.user` to `{ id, role, sessionId }`. The server SDK is bound per request with `withSession()`, since Nest has no async request context.
