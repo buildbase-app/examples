@@ -47,9 +47,9 @@ The price is `CREDITS_PER_GENERATION` in `lib/credits.ts`.
 
 1. Create an organization at [console.buildbase.app](https://console.buildbase.app) and copy its ID from **Settings → General**.
 2. Under **User Management → Authentication**, create an auth client and copy its client ID and secret. The secret is shown once.
-3. On that client, register the redirect URL `http://localhost:3000/dream`, and your deployed `https://<domain>/dream`. Wildcards like `*.vercel.app` are not accepted.
+3. On that client, register the redirect URL `http://localhost:3000/dream`, and your deployed `https://<domain>/dream`. A wildcard can only stand in for one leftmost subdomain on a domain you own, so `*.vercel.app` is not accepted.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, turn on **auto-create first workspace**. Credits belong to a workspace, so every user needs one.
+5. Under workspace settings, check that **Auto-Create First Workspace** (under **Advanced Overrides**) is on; it is by default. Credits belong to a workspace, so every user needs one.
 
 **Credits**
 

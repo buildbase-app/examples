@@ -7,13 +7,13 @@ authentication is replaced by [BuildBase](https://buildbase.app). It is the
 example for **Remix / React Router v7**, and for using the React SDK in a
 server-rendered app.
 
-| Upstream builds itself                                           | Here, BuildBase does it                                                                    |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Username and password (bcrypt), sign-up, onboarding              | The hosted sign-in page: email, magic link, social, passkeys, 2FA, as the org enables them |
-| Email verification, forgot and reset password, change email      | Same hosted page, and the account screens                                                  |
-| GitHub OAuth through `remix-auth`                                | Social sign-in on the hosted page                                                          |
-| Passkeys (`@simplewebauthn`) and TOTP 2FA (`@epic-web/totp`)     | Same hosted page, and the SDK's Security screen                                            |
-| Five settings pages: email, 2FA, password, connections, passkeys | Buttons that open the SDK's Security, Devices and Account screens                          |
+| Upstream builds itself                                           | Here, BuildBase does it                                                               |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Username and password (bcrypt), sign-up, onboarding              | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them |
+| Email verification, forgot and reset password, change email      | Same hosted page, and the account screens                                             |
+| GitHub OAuth through `remix-auth`                                | Social sign-in on the hosted page                                                     |
+| Passkeys (`@simplewebauthn`) and TOTP 2FA (`@epic-web/totp`)     | Passkeys: the hosted page and the SDK's Security screen. TOTP 2FA: removed            |
+| Five settings pages: email, 2FA, password, connections, passkeys | Buttons that open the SDK's Security, Devices and Account screens                     |
 
 About 4,200 lines of app code and 1,000 of tests are gone. Prisma loses four
 models (`Password`, `Verification`, `Connection`, `Passkey`) and `User` gains
@@ -77,8 +77,9 @@ state resolves in the browser.
    `http://localhost:3000/auth/buildbase/callback`, and the same path on your
    deployed domain.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, turn on **auto-create first workspace**; the
-   account screens open for a workspace.
+5. Under workspace settings, check that **Auto-Create First Workspace** (under
+   **Advanced Overrides**) is on; it is by default. The account screens open for
+   a workspace.
 
 ```bash
 cp .env.example .env    # then fill in the four BUILDBASE_* values

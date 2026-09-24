@@ -36,12 +36,12 @@ Recorded against a local BuildBase stack with Stripe in test mode; still stretch
 
 1. Create an organization at [console.buildbase.app](https://console.buildbase.app) and copy its ID from **Settings → General**.
 2. Under **User Management → Authentication**, create an auth client and copy its client ID and secret. The secret is shown once.
-3. On that client, register the redirect URL `http://localhost:3000/sign-in`, and your deployed `https://<domain>/sign-in`. Wildcards like `*.vercel.app` are not accepted.
+3. On that client, register the redirect URL `http://localhost:3000/sign-in`, and your deployed `https://<domain>/sign-in`. A wildcard can only stand in for one leftmost subdomain on a domain you own, so `*.vercel.app` is not accepted.
 4. Enable at least one sign-in method, for example Email (magic link), which also turns on email/password sign-up.
 
 **Teams**
 
-5. Under workspace settings, choose the **Platform** mode with **auto-create first workspace** on and **members can be invited**. Each customer then gets a workspace (their team) the first time they sign in.
+5. Under workspace settings, choose the **Platform** mode. Under **Advanced Overrides**, check that **Auto-Create First Workspace** is on and **Can Invite Members** is not Disabled; both are, by default. Each customer then gets a workspace (their team) the first time they sign in.
 
 **Billing**
 

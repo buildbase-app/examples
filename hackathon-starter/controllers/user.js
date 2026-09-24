@@ -1,6 +1,6 @@
 // Modified from sahat/hackathon-starter: sign-in, sign-up, password reset,
-// email verification, email links, 2FA and passkeys moved to BuildBase's
-// hosted pages. This controller keeps what is the app's own business: the
+// email verification, email links and passkeys moved to BuildBase's hosted
+// pages, and upstream's 2FA is removed. This controller keeps what is the app's own business: the
 // profile, linked provider accounts, and deleting the app's data.
 const validator = require('validator');
 const User = require('../models/User');
@@ -48,7 +48,7 @@ exports.getBuildbaseCallback = async (req, res, next) => {
   const { code, state } = req.query;
   const expectedState = req.session.buildbaseState;
   req.session.buildbaseState = undefined;
-  if (typeof code !== 'string' || (state && state !== expectedState)) {
+  if (typeof code !== 'string' || !state || state !== expectedState) {
     req.flash('errors', { msg: 'Sign-in did not complete. Please try again.' });
     return res.redirect('/login');
   }
@@ -57,7 +57,10 @@ exports.getBuildbaseCallback = async (req, res, next) => {
     req.session.buildbaseSessionId = sessionId;
     const profile = await buildbase.forRequest(req).users.getProfile();
     // The profile API returns `id`; older SDK types call it `_id`.
-    const buildbaseId = String(profile.id || profile._id);
+    const rawId = profile.id || profile._id;
+    // Never String() a missing ID: every such user would share one account.
+    if (!rawId || !profile.email) throw new Error('BuildBase returned a profile without an ID or email.');
+    const buildbaseId = String(rawId);
     const email = validator.normalizeEmail(profile.email, { gmail_remove_dots: false });
 
     let user = await User.findOne({ buildbase: { $eq: buildbaseId } });

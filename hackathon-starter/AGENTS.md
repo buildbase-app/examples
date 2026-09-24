@@ -1,6 +1,6 @@
 # AGENTS.md
 
-> **BuildBase example.** Sign-in, sign-up, password reset, email verification, 2FA and passkeys moved to BuildBase (`config/buildbase.js`, see README.md). `controllers/webauthn.js` and the auth views other than `login.pug` and `profile.pug` are deleted, and the provider strategies in `config/passport.js` only _link_ accounts for the API examples; they no longer sign anyone in, so the "Sign-in button" column below is historical.
+> **BuildBase example.** Sign-in, sign-up, password reset, email verification and passkeys moved to BuildBase, and upstream's 2FA is removed (`config/buildbase.js`, see README.md). `controllers/webauthn.js` and the auth views other than `login.pug` and `profile.pug` are deleted, and the provider strategies in `config/passport.js` only _link_ accounts for the API examples; they no longer sign anyone in, so the "Sign-in button" column below is historical.
 
 This file is for coding agents (and anyone doing a quick pass with one). It is a
 **dependency map**, not a tutorial — for narrative setup instructions, API key

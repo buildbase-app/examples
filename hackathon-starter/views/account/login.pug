@@ -12,7 +12,7 @@ block content
         .alert.alert-warning
           | Set <code>BUILDBASE_ORG_ID</code>, <code>BUILDBASE_CLIENT_ID</code> and <code>BUILDBASE_CLIENT_SECRET</code> in <code>.env</code> to enable sign-in. The README walks through each one.
       p
-        | Sign in or create an account on the secure sign-in page. Email, magic link, social login, passkeys and two-factor authentication are all there, as your BuildBase organization enables them.
+        | Sign in or create an account on the secure sign-in page. Email, magic link, social login and passkeys are all there, as your BuildBase organization enables them.
       form(method='POST', action='/login')
         input(type='hidden', name='_csrf', value=_csrf)
         button.btn.btn-primary(type='submit', disabled=!buildbaseConfigured)

@@ -128,7 +128,7 @@ export const buildbaseAuth = (options: BuildBaseAuthOptions) => {
             ? (JSON.parse(raw) as { state: string; redirectTo: string })
             : null;
           const { code, state } = ctx.query;
-          if (!code || !saved || (state && state !== saved.state)) {
+          if (!code || !saved || !state || state !== saved.state) {
             throw ctx.redirect('/login/error?error=STATE_MISMATCH');
           }
 
@@ -148,9 +148,13 @@ export const buildbaseAuth = (options: BuildBaseAuthOptions) => {
             .withSession(buildbaseSessionId)
             .users.getProfile();
           // The profile API returns `id`; older SDK types call it `_id`.
-          const accountId = String(
-            (profile as typeof profile & { id?: string }).id ?? profile._id,
-          );
+          const rawId =
+            (profile as typeof profile & { id?: string }).id ?? profile._id;
+          // Never String() a missing ID: every such user would share one account.
+          if (!rawId || !profile.email) {
+            throw new Error('BuildBase returned a profile without an ID or email.');
+          }
+          const accountId = String(rawId);
           const email = profile.email.toLowerCase();
           const adapter = ctx.context.internalAdapter;
 

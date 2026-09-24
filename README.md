@@ -44,7 +44,7 @@ Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · 
 
 <a href="epic-stack"><img src=".github/media/epic-stack.png" alt="epic-stack: see it working" width="720"></a>
 
-**React Router v7, server-rendered.** The Epic Stack's passwords, onboarding, GitHub OAuth, passkeys and 2FA replaced by BuildBase. Its own sessions, permissions and notes app run unchanged on top, and the React SDK renders on the server for its account screens.
+**React Router v7, server-rendered.** The Epic Stack's passwords, onboarding, GitHub OAuth and passkeys replaced by BuildBase, and its 2FA removed. Its own sessions, permissions and notes app run unchanged on top, and the React SDK renders on the server for its account screens.
 
 Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.5k★, MIT) · React Router v7 · about 10 minutes
 
@@ -94,7 +94,7 @@ Based on [cloudflare/templates](https://github.com/cloudflare/templates/tree/mai
 
 <a href="hackathon-starter"><img src=".github/media/hackathon-starter.png" alt="hackathon-starter: see it working" width="720"></a>
 
-**Express, Pug and no React.** Hackathon Starter's passwords, email links, 2FA and passkeys replaced by BuildBase's hosted sign-in, driven from the server. The API examples stay, and a BuildBase one joins them: workspaces and credits through the server SDK's `withSession()`.
+**Express, Pug and no React.** Hackathon Starter's passwords, email links and passkeys replaced by BuildBase's hosted sign-in, driven from the server, and its 2FA removed. The API examples stay, and a BuildBase one joins them: workspaces and credits through the server SDK's `withSession()`.
 
 Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (35k★, MIT) · Express · about 10 minutes
 
@@ -139,7 +139,7 @@ Based on [ixartz/Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerpl
 ## Before you start
 
 - **Setup time is honest.** Only `with-buildbase` is a five-minute job. The others need console steps (Stripe test keys, plans, credit packages, a workflow), each written out in its README.
-- **Redirect URLs must be exact.** Register `http://localhost:3000/...` and your deployed domain on the auth client; wildcards like `*.vercel.app` are not accepted.
+- **Redirect URLs must be exact.** Register `http://localhost:3000/...` and your deployed domain on the auth client; A wildcard can only stand in for one leftmost subdomain on a domain you own, so `*.vercel.app` is not accepted.
 - **BuildBase does not run your models.** LLM calls, image generation and chat storage come from each app's own stack; BuildBase handles who the user is, which workspace they are in, and what they have paid for.
 
 ## Credits and licences

@@ -19,7 +19,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const authSession = await authSessionStorage.getSession(
 		request.headers.get('cookie'),
 	)
-	if (!code || (state && state !== authSession.get(signInStateKey))) {
+	if (!code || !state || state !== authSession.get(signInStateKey)) {
 		return redirectWithToast('/login', {
 			type: 'error',
 			title: 'Sign-in did not complete',
@@ -31,7 +31,8 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const profile = await buildbaseFor(buildbaseSessionId).users.getProfile()
 	// The profile API returns `id`; older SDK types call it `_id`.
 	const { id, _id, email, name } = profile as typeof profile & { id?: string }
-	if (!email) throw redirect('/login')
+	// Never String() a missing ID: every such user would share one account.
+	if (!email || !(id ?? _id)) throw redirect('/login')
 
 	return createSessionForBuildBaseUser({
 		request,

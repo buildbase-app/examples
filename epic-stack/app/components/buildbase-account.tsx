@@ -16,8 +16,8 @@ export function BuildBaseAccount({ email }: { email: string }) {
 	return (
 		<div className="flex flex-col gap-3">
 			<p className="text-body-sm text-muted-foreground">
-				You sign in as {email} through BuildBase. Passwords, passkeys,
-				two-factor authentication and your sign-in methods live there.
+				You sign in as {email} through BuildBase. Passwords, passkeys and your
+				sign-in methods live there.
 			</p>
 			{SCREENS.map(({ section, label, icon }) => (
 				<div key={section}>

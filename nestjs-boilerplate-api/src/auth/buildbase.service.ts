@@ -80,8 +80,10 @@ export class BuildBaseService {
 
   /** The BuildBase user behind a session, or 401 if it is not valid. */
   async profile(sessionId: string): Promise<BuildBaseProfile> {
+    const now = Date.now();
     const cached = this.profiles.get(sessionId);
-    if (cached && cached.expires > Date.now()) return cached.profile;
+    if (cached && cached.expires > now) return cached.profile;
+    if (cached) this.profiles.delete(sessionId);
 
     const { orgId } = this.requireConfigured();
     this.client ??= BuildBase({
@@ -97,10 +99,17 @@ export class BuildBaseService {
       });
     // The profile API returns `id`; older SDK types call it `_id`.
     const { id, _id, email, name } = user as typeof user & { id?: string };
+    // Never String() a missing ID: every such user would share one account.
+    if (!(id ?? _id) || !email) throw new UnauthorizedException();
     const profile = { id: String(id ?? _id), email, name };
+    // Drop expired entries as we go, so the cache holds only the sessions
+    // seen in the last minute rather than every session ever seen.
+    for (const [key, entry] of this.profiles) {
+      if (entry.expires <= now) this.profiles.delete(key);
+    }
     this.profiles.set(sessionId, {
       profile,
-      expires: Date.now() + PROFILE_TTL_MS,
+      expires: now + PROFILE_TTL_MS,
     });
     return profile;
   }

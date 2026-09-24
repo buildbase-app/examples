@@ -91,8 +91,8 @@ export default function LoginPage({
 						</StatusButton>
 					</Form>
 					<p className="text-body-xs text-muted-foreground mt-6 text-center">
-						Email, magic link, social sign-in, passkeys and two-factor
-						authentication, secured by BuildBase.
+						Email, magic link, social sign-in and passkeys, secured by
+						BuildBase.
 					</p>
 				</div>
 			</div>

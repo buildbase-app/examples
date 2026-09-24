@@ -4,14 +4,14 @@
 
 | Upstream builds itself                                        | Here, BuildBase does it                                                                            |
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Email and password (bcrypt), sign-up, password reset          | The hosted sign-in page: email, magic link, social, passkeys, 2FA, as the org enables them         |
+| Email and password (bcrypt), sign-up, password reset          | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them              |
 | Email-link login, email verification                          | Same hosted page                                                                                   |
-| Passkeys (`@simplewebauthn`) and TOTP / email 2FA (`otpauth`) | Same hosted page                                                                                   |
+| Passkeys (`@simplewebauthn`) and TOTP / email 2FA (`otpauth`) | Passkeys: the hosted page. 2FA: removed                                                            |
 | "Sign in with Google / GitHub / ..." through Passport         | Social sign-in on the hosted page. Passport stays only to **link** a provider for the API examples |
 | "Logout everywhere" across this app's sessions                | Ends every BuildBase session too, on every device                                                  |
 | -                                                             | A workspace per user on first sign-in, and credits, read with the server SDK                       |
 
-About 2,000 lines of app code are gone: `controllers/user.js` and `controllers/webauthn.js`, 1,384 lines between them, are now one 240-line `user.js`, the user model lost its password, token, 2FA and passkey fields, and seven views are deleted. `passport-local`, `@simplewebauthn/*`, `otpauth`, `qr`, `@node-rs/bcrypt` and `mailchecker` are out; `@buildbase/sdk` is in. The API and AI examples are upstream's, untouched.
+About 2,000 lines of app code are gone: `controllers/user.js` and `controllers/webauthn.js`, 1,384 lines between them, are now one `user.js` of about 240 lines, the user model lost its password, token, 2FA and passkey fields, and seven views are deleted. `passport-local`, `@simplewebauthn/*`, `otpauth`, `qr`, `@node-rs/bcrypt` and `mailchecker` are out; `@buildbase/sdk` is in. The API and AI examples are upstream's, untouched.
 
 ## See it working
 
@@ -45,7 +45,7 @@ There is no React here, so the server drives sign-in itself, in `config/buildbas
 2. Under **User Management → Authentication**, create an auth client and copy its client ID and secret. The secret is shown once.
 3. On that client, register the redirect URL `http://localhost:8080/auth/buildbase/callback` (your `BASE_URL` plus `/auth/buildbase/callback`), and the same path on your deployed domain.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, turn on **auto-create first workspace**, so each user gets one.
+5. Under workspace settings, check that **Auto-Create First Workspace** (under **Advanced Overrides**) is on; it is by default, so each user gets one.
 6. Optional, for the credits card: a **Workflows** entry triggered by **Workspace Created** with a **Grant Credits** action (amount 10, workspace `{{trigger.workspaceId}}`).
 
 ```bash

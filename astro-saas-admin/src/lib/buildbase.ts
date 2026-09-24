@@ -138,12 +138,12 @@ export function buildbase(env: BuildBaseEnv) {
         const me = members.find((m) => {
           const user = m.user as string | { _id?: string; id?: string };
           const userId = typeof user === "string" ? user : (user._id ?? user.id);
-          return userId === profile.id;
+          return Boolean(userId) && userId === (profile.id ?? profile._id);
         });
         role = (me?.role as Role | undefined) ?? null;
       }
       return {
-        id: profile.id ?? "",
+        id: profile.id ?? profile._id ?? "",
         name: profile.name,
         email: profile.email,
         role,

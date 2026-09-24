@@ -38,7 +38,7 @@ After deploying, add three storage integrations from the project's **Storage** t
 
 1. Create an organization at [console.buildbase.app](https://console.buildbase.app) and copy its ID from **Settings → General**.
 2. Create an auth client under **User Management → Authentication**. Copy the client ID and the client secret, which is shown only once.
-3. Register the redirect URL on that client: `http://localhost:3000/welcome` locally, and `https://<your-domain>/welcome` on Vercel. Wildcards like `*.vercel.app` are not accepted, so add each domain exactly.
+3. Register the redirect URL on that client: `http://localhost:3000/welcome` locally, and `https://<your-domain>/welcome` on Vercel. A wildcard can only stand in for one leftmost subdomain on a domain you own, so `*.vercel.app` is not accepted: add each Vercel domain exactly.
 4. Enable at least one sign-in method on the same page.
 
 **Credits**
