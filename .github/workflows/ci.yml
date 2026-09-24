@@ -58,6 +58,11 @@ jobs:
             pm: npm
             build: npm run build
             check: npm run lint && npm test
+          - example: fastify-demo
+            pm: npm
+            build: npm run build
+            # The test suite needs MySQL; it runs in fastify-demo-tests below.
+            check: npm run lint
           - example: start-ui-web
             pm: pnpm
             # The env is validated at build time; the example values are enough.
@@ -94,3 +99,52 @@ jobs:
 
       - name: Check
         run: ${{ matrix.check }}
+
+  # fastify-demo's suite runs against a real MySQL, as upstream's does. BuildBase
+  # is replaced by a fake in test/helper.ts, so no BuildBase env is needed.
+  fastify-demo-tests:
+    name: fastify-demo tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fastify-demo
+    services:
+      mysql:
+        image: mysql:8.4
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root_password
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+        options: >-
+          --health-cmd="mysqladmin ping -utest_user -ptest_password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: fastify-demo/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PORT: 3306
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+          COOKIE_NAME: sessid
+          RATE_LIMIT_MAX: 8
+          CAN_SEED_DATABASE: 1
+        run: |
+          echo "COOKIE_SECRET=$(openssl rand -hex 32)" > .env
+          npm run db:migrate && npm test

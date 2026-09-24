@@ -98,6 +98,14 @@ Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (
 
 Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★, MIT) · NestJS · about 10 minutes
 
+### [fastify-demo](fastify-demo)
+
+<a href="fastify-demo"><img src=".github/media/fastify-demo.png" alt="fastify-demo: see it working" width="720"></a>
+
+**A metered Fastify API.** The Fastify team's own reference app with its email/password login and scrypt hashing replaced by a round trip through BuildBase's hosted sign-in. Creating a task spends a credit and answers 402 when the workspace is empty. Sessions, roles, uploads and the MySQL test suite are upstream's.
+
+Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify demo, MIT) · Fastify · about 10 minutes
+
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)
