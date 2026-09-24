@@ -38,6 +38,16 @@ Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-image-credits&project-name=ai-image-credits-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,REPLICATE_API_KEY&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-image-credits)
 
+## Remix / React Router
+
+### [epic-stack](epic-stack)
+
+<a href="epic-stack"><img src=".github/media/epic-stack.png" alt="epic-stack: see it working" width="720"></a>
+
+**React Router v7, server-rendered.** The Epic Stack's passwords, onboarding, GitHub OAuth, passkeys and 2FA replaced by BuildBase. Its own sessions, permissions and notes app run unchanged on top, and the React SDK renders on the server for its account screens.
+
+Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.5k★, MIT) · React Router v7 · about 10 minutes
+
 ## Teams, roles and billing
 
 ### [saas-starter](saas-starter)
