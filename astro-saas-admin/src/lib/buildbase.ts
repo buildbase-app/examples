@@ -143,7 +143,7 @@ export function buildbase(env: BuildBaseEnv) {
         role = (me?.role as Role | undefined) ?? null;
       }
       return {
-        id: profile.id ?? "",
+        id: profile.id ?? profile._id ?? "",
         name: profile.name,
         email: profile.email,
         role,
