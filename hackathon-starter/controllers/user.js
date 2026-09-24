@@ -1,6 +1,6 @@
 // Modified from sahat/hackathon-starter: sign-in, sign-up, password reset,
-// email verification, email links, 2FA and passkeys moved to BuildBase's
-// hosted pages. This controller keeps what is the app's own business: the
+// email verification, email links and passkeys moved to BuildBase's hosted
+// pages, and upstream's 2FA is removed. This controller keeps what is the app's own business: the
 // profile, linked provider accounts, and deleting the app's data.
 const validator = require('validator');
 const User = require('../models/User');

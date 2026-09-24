@@ -65,7 +65,7 @@ export default async function Index(props: IndexPageProps) {
           >
             BuildBase
           </a>{' '}
-          (magic link, social, passkeys and two-factor)
+          (magic link, social and passkeys)
         </li>
         <li>📦 ORM with DrizzleORM (PostgreSQL, SQLite, MySQL support)</li>
         <li>

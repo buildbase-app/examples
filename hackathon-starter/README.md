@@ -4,9 +4,9 @@
 
 | Upstream builds itself                                        | Here, BuildBase does it                                                                            |
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Email and password (bcrypt), sign-up, password reset          | The hosted sign-in page: email, magic link, social, passkeys, 2FA, as the org enables them         |
+| Email and password (bcrypt), sign-up, password reset          | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them              |
 | Email-link login, email verification                          | Same hosted page                                                                                   |
-| Passkeys (`@simplewebauthn`) and TOTP / email 2FA (`otpauth`) | Same hosted page                                                                                   |
+| Passkeys (`@simplewebauthn`) and TOTP / email 2FA (`otpauth`) | Passkeys: the hosted page. 2FA: removed                                                            |
 | "Sign in with Google / GitHub / ..." through Passport         | Social sign-in on the hosted page. Passport stays only to **link** a provider for the API examples |
 | "Logout everywhere" across this app's sessions                | Ends every BuildBase session too, on every device                                                  |
 | -                                                             | A workspace per user on first sign-in, and credits, read with the server SDK                       |

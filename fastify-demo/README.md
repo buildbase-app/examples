@@ -4,7 +4,7 @@
 
 | Upstream builds itself | Here, BuildBase does it |
 | --- | --- |
-| `POST /api/auth/login` with an email and password | A round trip through the hosted sign-in page: email, magic link, social, passkeys, 2FA, as the org enables them |
+| `POST /api/auth/login` with an email and password | A round trip through the hosted sign-in page: email, magic link, social, passkeys, as the org enables them |
 | Password hashing with scrypt (`password-manager.ts`) | BuildBase stores and checks credentials |
 | `PUT /api/users/update-password` | Changed on the BuildBase account, not in the app |
 | Nothing: every call is free | `POST /api/tasks` spends one credit from the user's workspace, and answers 402 when it is empty |

@@ -4,7 +4,7 @@
 
 | Upstream | Here |
 | --- | --- |
-| Email one-time code (better-auth `emailOTP`), with a code-entry page and a login email | BuildBase's hosted page: email, magic link, social, passkeys, 2FA, as the org enables them |
+| Email one-time code (better-auth `emailOTP`), with a code-entry page and a login email | BuildBase's hosted page: email, magic link, social, passkeys, as the org enables them |
 | GitHub OAuth | Social sign-in on the hosted page |
 | better-auth sessions, admin plugin, roles and permissions | **Unchanged.** A small better-auth plugin makes BuildBase a sign-in method, so the session, the admin screens and every oRPC permission check work as before |
 | - | The BuildBase React SDK's Security, Devices and Account screens, on the account page |

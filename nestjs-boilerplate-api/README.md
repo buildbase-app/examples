@@ -4,7 +4,7 @@
 
 | Upstream builds itself | Here, BuildBase does it |
 | --- | --- |
-| Email register, confirm, login, forgot and reset password (bcrypt) | The hosted sign-in page: email, magic link, social, passkeys, 2FA, as the org enables them |
+| Email register, confirm, login, forgot and reset password (bcrypt) | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them |
 | JWT access tokens, refresh tokens and a `session` table | The token is a BuildBase session ID; BuildBase manages its lifetime |
 | Apple, Facebook and Google login modules | Social sign-in on the hosted page |
 | Passport's `AuthGuard('jwt')` | `BuildBaseAuthGuard`, which puts the same `{ id, role }` on the request, so `RolesGuard` is unchanged |
