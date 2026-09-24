@@ -24,7 +24,7 @@ export function AuthPanel() {
               <span className="button secondary block">
                 {isLoading
                   ? 'Loading workspace...'
-                  : `${workspace?.name ?? 'Workspace'} ▾ settings`}
+                  : `${workspace?.name ?? 'Workspace'} · settings ▾`}
               </span>
             )}
           />
