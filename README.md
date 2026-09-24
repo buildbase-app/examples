@@ -106,6 +106,16 @@ Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boil
 
 Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify demo, MIT) · Fastify · about 10 minutes
 
+## Any runtime
+
+### [hono](hono)
+
+<a href="hono"><img src=".github/media/hono.png" alt="hono: see it working" width="720"></a>
+
+**One app on Node.js, Bun, Deno and Cloudflare Workers.** Hosted sign-in, the account and credit balance read with the server SDK, and a metered endpoint that answers 402 when the workspace is empty. No database: the session is a signed cookie, so it runs the same in a Worker.
+
+Own code · Hono · about 10 minutes
+
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)

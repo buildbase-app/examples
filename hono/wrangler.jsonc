@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers: `npm run dev:workers` locally, `npm run deploy:workers` to ship.
+  // Put BUILDBASE_CLIENT_SECRET and COOKIE_SECRET in with `wrangler secret put`,
+  // and the rest under "vars" or in the dashboard. Locally, .dev.vars holds them all.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hono-buildbase",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-09-01"
+}

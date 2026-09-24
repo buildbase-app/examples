@@ -1,0 +1,28 @@
+{
+  "name": "hono-buildbase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/node.ts",
+    "build": "tsc",
+    "start": "node --env-file-if-exists=.env dist/node.js",
+    "dev:bun": "bun --env-file=.env src/bun.ts",
+    "dev:deno": "deno run --allow-net --allow-env --allow-read --env-file=.env src/deno.ts",
+    "dev:workers": "wrangler dev",
+    "deploy:workers": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@buildbase/sdk": "^0.0.70",
+    "@hono/node-server": "^2.1.1",
+    "hono": "^4.13.9"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260924.1",
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.138.0"
+  }
+}

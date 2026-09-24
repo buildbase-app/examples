@@ -63,6 +63,11 @@ jobs:
             build: npm run build
             # The test suite needs MySQL; it runs in fastify-demo-tests below.
             check: npm run lint
+          - example: hono
+            pm: npm
+            build: npm run build
+            # The Worker bundle too: wrangler builds it without an account.
+            check: npm run typecheck && npm test && npx wrangler deploy --dry-run --outdir .wrangler/dry-run
           - example: start-ui-web
             pm: pnpm
             # The env is validated at build time; the example values are enough.
