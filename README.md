@@ -80,6 +80,14 @@ Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k�
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=admin-dashboard&project-name=admin-dashboard-buildbase&env=VITE_BUILDBASE_ORG_ID,VITE_BUILDBASE_CLIENT_ID,VITE_BUILDBASE_REDIRECT_URL,BUILDBASE_CLIENT_SECRET&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fadmin-dashboard)
 
+### [astro-saas-admin](astro-saas-admin)
+
+<a href="astro-saas-admin"><img src=".github/media/astro-saas-admin.png" alt="astro-saas-admin: see it working" width="720"></a>
+
+**Astro on Cloudflare Workers, with roles.** Cloudflare's SaaS Admin Template leaves `/admin` open and hands its API token to the browser. Here one middleware requires a BuildBase sign-in and a seat in the admin's workspace: admins and editors change data, viewers read, everyone else is kept out.
+
+Based on [cloudflare/templates](https://github.com/cloudflare/templates/tree/main/saas-admin-template) `saas-admin-template` (2.1k★ repo, MIT) · Astro · about 15 minutes
+
 ## Plain Node.js servers
 
 ### [hackathon-starter](hackathon-starter)

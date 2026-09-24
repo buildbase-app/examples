@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { SubscriptionService } from '@/lib/services/subscription';
+import { CreateSubscriptionButton } from '@/components/admin/create-subscription';
+import { SubscriptionsTable } from '@/components/admin/subscriptions-table';
+import { canWrite } from '@/lib/buildbase';
+
+// Changed for the BuildBase example: only admins and editors see the button,
+// and it no longer carries the API token.
+const writable = canWrite(Astro.locals.member?.role ?? null);
+const { DB } = Astro.locals.runtime.env;
+const subscriptionService = new SubscriptionService(DB);
+const subscriptions = await subscriptionService.getAll();
+---
+
+<Layout title="Subscriptions">
+  {subscriptions.length ? (
+    <SubscriptionsTable data={subscriptions} />
+  ) : (
+    <p class="font-medium text-muted-foreground">
+      No subscriptions yet. Try creating one using the API or by selecting "Create New Subscription" above.
+    </p>
+  )}
+
+  <div slot="actions">
+    {writable && <CreateSubscriptionButton client:only="react" />}
+  </div>
+</Layout>

@@ -68,6 +68,11 @@ jobs:
             build: npm run build
             # The Worker bundle too: wrangler builds it without an account.
             check: npm run typecheck && npm test && npx wrangler deploy --dry-run --outdir .wrangler/dry-run
+          - example: astro-saas-admin
+            pm: npm
+            build: npm run build
+            # Upstream's own check: the Worker bundle, deployed as a dry run.
+            check: npm test && npm run wrangler:wrapper && npx wrangler deploy --dry-run
           - example: start-ui-web
             pm: pnpm
             # The env is validated at build time; the example values are enough.

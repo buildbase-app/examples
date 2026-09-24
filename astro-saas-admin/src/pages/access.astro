@@ -1,0 +1,48 @@
+---
+// Added for the BuildBase example: where the middleware sends anyone it will
+// not let into /admin, with the reason and, during setup, what to set.
+import Layout from '@/layouts/Layout.astro';
+import { buttonVariants } from '@/components/ui/button';
+import { missingConfig, type BuildBaseEnv } from '@/lib/buildbase';
+
+const env = Astro.locals.runtime.env as unknown as BuildBaseEnv;
+const { member } = Astro.locals;
+const missing = missingConfig(env);
+const signInFailed = Astro.url.searchParams.get('error') === 'sign-in';
+if (member?.role) return Astro.redirect('/admin');
+---
+
+<Layout title="Access">
+  <div class="max-w-2xl space-y-4 rounded-xl border p-6">
+    {missing.length > 0 ? (
+      <>
+        <p class="font-medium">BuildBase is not configured yet.</p>
+        <p class="text-sm text-muted-foreground">
+          Set {missing.map((m) => <code class="mr-1">{m}</code>)} in <code>.dev.vars</code> locally, or as Worker
+          variables and secrets, then restart. The README has the console steps.
+        </p>
+      </>
+    ) : !member ? (
+      <>
+        <p class="font-medium">{signInFailed ? 'Sign-in could not be verified.' : 'Sign in to use the admin.'}</p>
+        <a class={buttonVariants()} href="/auth/sign-in" id="sign-in">Sign in with BuildBase</a>
+      </>
+    ) : !env.ADMIN_WORKSPACE_ID ? (
+      <>
+        <p class="font-medium">One step left: choose the workspace that runs this admin.</p>
+        <p class="text-sm text-muted-foreground">
+          Set <code>ADMIN_WORKSPACE_ID</code> to one of your BuildBase workspaces. Its admins and editors will be able to
+          change data here, and its viewers to read it.
+        </p>
+        <ul class="space-y-1 text-sm">
+          {member.workspaces.map((w) => <li><code>{w.id}</code> {w.name}</li>)}
+        </ul>
+      </>
+    ) : (
+      <>
+        <p class="font-medium">You are signed in as {member.email}, but not a member of this admin's workspace.</p>
+        <p class="text-sm text-muted-foreground">Ask one of its admins to invite you, then sign in again.</p>
+      </>
+    )}
+  </div>
+</Layout>

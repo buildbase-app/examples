@@ -1,0 +1,12 @@
+# Changed for the BuildBase example. From your BuildBase console; see the README.
+BUILDBASE_ORG_ID=
+BUILDBASE_CLIENT_ID=
+BUILDBASE_CLIENT_SECRET=
+# The BuildBase workspace whose members run this admin. Sign in once and the
+# admin lists your workspace IDs.
+ADMIN_WORKSPACE_ID=
+# Optional: https://api.console.buildbase.app unless you run your own
+# BUILDBASE_SERVER_URL=
+
+# Optional now: machine clients can still call /api with this token.
+API_TOKEN=
