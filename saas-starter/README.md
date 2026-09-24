@@ -41,7 +41,7 @@ Recorded against a local BuildBase stack with Stripe in test mode; still stretch
 
 **Teams**
 
-5. Under workspace settings, choose the **Platform** mode with **auto-create first workspace** on and **members can be invited**. Each customer then gets a workspace (their team) the first time they sign in.
+5. Under workspace settings, choose the **Platform** mode. Under **Advanced Overrides**, check that **Auto-Create First Workspace** is on and **Can Invite Members** is not Disabled; both are, by default. Each customer then gets a workspace (their team) the first time they sign in.
 
 **Billing**
 

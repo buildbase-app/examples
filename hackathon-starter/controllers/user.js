@@ -48,7 +48,7 @@ exports.getBuildbaseCallback = async (req, res, next) => {
   const { code, state } = req.query;
   const expectedState = req.session.buildbaseState;
   req.session.buildbaseState = undefined;
-  if (typeof code !== 'string' || (state && state !== expectedState)) {
+  if (typeof code !== 'string' || !state || state !== expectedState) {
     req.flash('errors', { msg: 'Sign-in did not complete. Please try again.' });
     return res.redirect('/login');
   }

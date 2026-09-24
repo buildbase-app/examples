@@ -128,7 +128,7 @@ export const buildbaseAuth = (options: BuildBaseAuthOptions) => {
             ? (JSON.parse(raw) as { state: string; redirectTo: string })
             : null;
           const { code, state } = ctx.query;
-          if (!code || !saved || (state && state !== saved.state)) {
+          if (!code || !saved || !state || state !== saved.state) {
             throw ctx.redirect('/login/error?error=STATE_MISMATCH');
           }
 

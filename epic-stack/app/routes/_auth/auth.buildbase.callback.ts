@@ -19,7 +19,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const authSession = await authSessionStorage.getSession(
 		request.headers.get('cookie'),
 	)
-	if (!code || (state && state !== authSession.get(signInStateKey))) {
+	if (!code || !state || state !== authSession.get(signInStateKey)) {
 		return redirectWithToast('/login', {
 			type: 'error',
 			title: 'Sign-in did not complete',

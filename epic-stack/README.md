@@ -77,8 +77,9 @@ state resolves in the browser.
    `http://localhost:3000/auth/buildbase/callback`, and the same path on your
    deployed domain.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, turn on **auto-create first workspace**; the
-   account screens open for a workspace.
+5. Under workspace settings, check that **Auto-Create First Workspace** (under
+   **Advanced Overrides**) is on; it is by default. The account screens open
+   for a workspace.
 
 ```bash
 cp .env.example .env    # then fill in the four BUILDBASE_* values

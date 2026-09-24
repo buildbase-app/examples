@@ -45,7 +45,7 @@ There is no React here, so the server drives sign-in itself, in `config/buildbas
 2. Under **User Management → Authentication**, create an auth client and copy its client ID and secret. The secret is shown once.
 3. On that client, register the redirect URL `http://localhost:8080/auth/buildbase/callback` (your `BASE_URL` plus `/auth/buildbase/callback`), and the same path on your deployed domain.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, turn on **auto-create first workspace**, so each user gets one.
+5. Under workspace settings, check that **Auto-Create First Workspace** (under **Advanced Overrides**) is on; it is by default, so each user gets one.
 6. Optional, for the credits card: a **Workflows** entry triggered by **Workspace Created** with a **Grant Credits** action (amount 10, workspace `{{trigger.workspaceId}}`).
 
 ```bash

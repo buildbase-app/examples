@@ -51,7 +51,7 @@ The same handlers run in two places: as **Vercel Functions** from `api/auth/*`, 
 2. Under **User Management → Authentication**, create an auth client and copy its client ID and secret. The secret is shown once.
 3. On that client, register the redirect URL `http://localhost:5173/sign-in`, and your deployed `https://<domain>/sign-in`. Wildcards like `*.vercel.app` are not accepted.
 4. Enable at least one sign-in method, for example Email (magic link).
-5. Under workspace settings, choose the **Platform** mode with **auto-create first workspace** on and **members can be invited**, so teams and the Members page work.
+5. Under workspace settings, choose the **Platform** mode, so users can add teams. Under **Advanced Overrides**, check that **Auto-Create First Workspace** is on and **Can Invite Members** is not Disabled; both are, by default.
 6. Optional: connect Stripe and publish plans, for the Plan and billing screens and the plan picker.
 
 ```bash
