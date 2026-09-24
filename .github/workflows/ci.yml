@@ -34,7 +34,8 @@ jobs:
             build: pnpm build
           - example: nextjs-boilerplate
             pm: npm
-            check: npm run lint && npm run check:types && npm test
+            # Upstream's unit tests run in Vitest browser mode.
+            check: npm run lint && npm run check:types && npx playwright install --with-deps chromium && npm test
             # Upstream's own CI build: an in-memory PGlite for the migrations.
             build: npm run build-local
           - example: ai-image-credits
