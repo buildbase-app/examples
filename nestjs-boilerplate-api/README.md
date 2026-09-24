@@ -2,13 +2,13 @@
 
 [NestJS Boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★) is a REST API with users, roles, file uploads, i18n, Swagger and a choice of Postgres (TypeORM) or MongoDB (Mongoose). Here its authentication is replaced by [BuildBase](https://buildbase.app). It is the example for **NestJS**, and for **an API with no UI of its own**.
 
-| Upstream builds itself | Here, BuildBase does it |
-| --- | --- |
-| Email register, confirm, login, forgot and reset password (bcrypt) | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them |
-| JWT access tokens, refresh tokens and a `session` table | The token is a BuildBase session ID; BuildBase manages its lifetime |
-| Apple, Facebook and Google login modules | Social sign-in on the hosted page |
-| Passport's `AuthGuard('jwt')` | `BuildBaseAuthGuard`, which puts the same `{ id, role }` on the request, so `RolesGuard` is unchanged |
-| Confirmation and reset emails (`mail`, `mailer`, maildev) | BuildBase sends sign-in email |
+| Upstream builds itself                                             | Here, BuildBase does it                                                                                                                  |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Email register, confirm, login, forgot and reset password (bcrypt) | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them                                                    |
+| JWT access tokens, refresh tokens and a `session` table            | The token is a BuildBase session ID; BuildBase manages its lifetime                                                                      |
+| Apple, Facebook and Google login modules                           | Social sign-in on the hosted page                                                                                                        |
+| Passport's `AuthGuard('jwt')`                                      | `BuildBaseAuthGuard`, which puts the same `{ id, role }` on the request, so `RolesGuard`'s logic is unchanged (only a type import moved) |
+| Confirmation and reset emails (`mail`, `mailer`, maildev)          | BuildBase sends sign-in email                                                                                                            |
 
 About 2,000 lines of `src` are gone, and `@nestjs/jwt`, `@nestjs/passport`, `passport`, `passport-jwt`, `passport-anonymous`, `bcryptjs`, `apple-signin-auth`, `google-auth-library`, `nodemailer`, `handlebars` and `ms` with them; `@buildbase/sdk` is in. One migration drops the `session` table and the password column. Users, roles, statuses, files, i18n, both database layers and the code generators are upstream's.
 
@@ -53,11 +53,11 @@ npm run migration:run && npm run seed:run:relational
 npm run start:dev                # Swagger at http://localhost:3001/docs
 ```
 
-| Variable | What it is |
-| --- | --- |
-| `BUILDBASE_ORG_ID` | Your org ID |
-| `BUILDBASE_CLIENT_ID` / `BUILDBASE_CLIENT_SECRET` | The auth client. The secret stays on the server |
-| `BUILDBASE_SERVER_URL` | Optional; defaults to `https://api.console.buildbase.app` |
+| Variable                                          | What it is                                                |
+| ------------------------------------------------- | --------------------------------------------------------- |
+| `BUILDBASE_ORG_ID`                                | Your org ID                                               |
+| `BUILDBASE_CLIENT_ID` / `BUILDBASE_CLIENT_SECRET` | The auth client. The secret stays on the server           |
+| `BUILDBASE_SERVER_URL`                            | Optional; defaults to `https://api.console.buildbase.app` |
 
 Until the org, client ID and secret are set, sign-in answers 503. The database, file storage and deployment settings are upstream's; see its [docs](docs) and [README](https://github.com/brocoders/nestjs-boilerplate/blob/9620f159eefe38f47747d02ab162852367c5472c/README.md).
 
