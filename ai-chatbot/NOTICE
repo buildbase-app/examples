@@ -1,0 +1,38 @@
+AI Chatbot with BuildBase
+
+This folder is a modified copy of vercel/chatbot
+  https://github.com/vercel/chatbot
+  at commit c2f8235e1f3ea903ad8b7f61447c4f74164b5c58
+  Copyright 2024 Vercel, Inc.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Modifications by Jagodana LLC (BuildBase), 2026:
+
+- Authentication: NextAuth (email/password credentials and anonymous guest
+  users) replaced with BuildBase hosted sign-in.
+  Changed: app/(auth)/auth.ts, proxy.ts, app/layout.tsx,
+  components/chat/sidebar-user-nav.tsx, and the type imports in
+  components/chat/app-sidebar.tsx, components/chat/sidebar-history.tsx,
+  lib/artifacts/server.ts and lib/ai/tools/*.
+  Added: app/(auth)/api/auth/{verify,session,signout}, app/(auth)/welcome,
+  components/buildbase-provider.tsx.
+  Removed: app/(auth)/{login,register,actions.ts,auth.config.ts},
+  app/(auth)/api/auth/{[...nextauth],guest}, components/chat/auth-form.tsx,
+  components/chat/sign-out-form.tsx, lib/db/utils.ts.
+
+- Usage limits: the hourly per-user message cap (lib/ai/entitlements.ts,
+  removed) replaced with BuildBase credits - each user message spends credits
+  from the user's workspace before the model runs.
+  Changed: app/(chat)/api/chat/route.ts, app/(chat)/api/chat/schema.ts,
+  hooks/use-active-chat.tsx, lib/errors.ts. Added: lib/credits.ts.
+
+- Users: lib/db/queries.ts gains ensureUser() and loses createUser() and
+  createGuestUser(); the User table is unchanged.
+
+- Tooling: the Playwright suite (tests/, playwright.config.ts,
+  lib/ai/models.test.ts) and husky were removed; they depended on the guest
+  sign-in flow. package.json drops next-auth, bcrypt-ts, husky and
+  @playwright/test, and adds @buildbase/sdk.
+
+Modified source files carry a "Modified from vercel/chatbot" comment where
+the change begins.
