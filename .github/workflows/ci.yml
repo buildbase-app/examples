@@ -54,6 +54,10 @@ jobs:
             # Upstream's typed SQL needs a migrated database to generate from.
             build: cp .env.example .env && npx prisma migrate deploy && npx prisma generate --sql && npm run build
             check: npm run typecheck && npm run lint && npx vitest run
+          - example: nestjs-boilerplate-api
+            pm: npm
+            build: npm run build
+            check: npm run lint && npm test
           - example: admin-dashboard
             pm: pnpm
             check: pnpm lint && pnpm knip

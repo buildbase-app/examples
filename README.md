@@ -80,6 +80,14 @@ Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k�
 
 Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (35k★, MIT) · Express · about 10 minutes
 
+### [nestjs-boilerplate-api](nestjs-boilerplate-api)
+
+<a href="nestjs-boilerplate-api"><img src=".github/media/nestjs-boilerplate-api.png" alt="nestjs-boilerplate-api: see it working" width="720"></a>
+
+**A NestJS REST API, no UI.** The boilerplate's email/password, JWT refresh tokens and Apple, Facebook and Google login replaced by BuildBase: a client gets the hosted page URL, posts back the code, and uses the BuildBase session as its Bearer token. Roles, users and files are upstream's.
+
+Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★, MIT) · NestJS · about 10 minutes
+
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)
