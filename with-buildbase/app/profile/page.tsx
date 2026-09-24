@@ -34,7 +34,8 @@ export default async function ProfilePage() {
           <dd>{profile.email}</dd>
           <dt>User ID</dt>
           <dd>
-            <code>{profile._id}</code>
+            {/* /profile returns the id as `id`; the SDK's IUser type says `_id`. */}
+            <code>{(profile as { id?: string }).id ?? profile._id}</code>
           </dd>
         </dl>
       </section>
