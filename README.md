@@ -60,6 +60,16 @@ Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k�
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=admin-dashboard&project-name=admin-dashboard-buildbase&env=VITE_BUILDBASE_ORG_ID,VITE_BUILDBASE_CLIENT_ID,VITE_BUILDBASE_REDIRECT_URL,BUILDBASE_CLIENT_SECRET&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fadmin-dashboard)
 
+## Plain Node.js servers
+
+### [hackathon-starter](hackathon-starter)
+
+<a href="hackathon-starter"><img src=".github/media/hackathon-starter.png" alt="hackathon-starter: see it working" width="720"></a>
+
+**Express, Pug and no React.** Hackathon Starter's passwords, email links, 2FA and passkeys replaced by BuildBase's hosted sign-in, driven from the server. The API examples stay, and a BuildBase one joins them: workspaces and credits through the server SDK's `withSession()`.
+
+Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (35k★, MIT) · Express · about 10 minutes
+
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)

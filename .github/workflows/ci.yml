@@ -42,6 +42,12 @@ jobs:
             pm: npm
             check: npx tsc --noEmit
             build: npm run build
+          - example: hackathon-starter
+            pm: npm
+            # Upstream's own checks: ESLint + Prettier, then mocha against an
+            # in-memory MongoDB.
+            check: npm run lint-check && npm test
+            build: npm run scss
           - example: admin-dashboard
             pm: pnpm
             check: pnpm lint && pnpm knip
