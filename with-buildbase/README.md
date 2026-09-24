@@ -2,6 +2,22 @@
 
 Sign-in for a Next.js app, using [BuildBase](https://buildbase.app). This is the smallest working integration. You get a hosted sign-in page on your own org, a session kept in an httpOnly cookie, and the signed-in user available in both client and server components. Nothing else is added.
 
+## See it working
+
+**Sign-in, a workspace and the user on the server, start to finish.**
+
+![Sign-in, a workspace and the user on the server, start to finish](../.github/media/with-buildbase.gif)
+
+1. Signed out: one button.
+2. BuildBase's hosted page, branded with the app's name and logo. Register, then enter the code from the email.
+3. Back in the app, signed in. The workspace switcher opens the SDK's prebuilt settings screens.
+4. The profile page reads the user on the server, with the session cookie.
+5. Sign out clears the session.
+
+<table><tr><td width="33%"><img src="../.github/media/with-buildbase.png" alt="Signed in"></td><td width="33%"><img src="../.github/media/with-buildbase-switcher.png" alt="Workspace switcher"></td><td width="33%"><img src="../.github/media/with-buildbase-profile.png" alt="Profile, read on the server"></td></tr><tr><td align="center"><sub>Signed in</sub></td><td align="center"><sub>Workspace switcher</sub></td><td align="center"><sub>Profile, read on the server</sub></td></tr></table>
+
+Recorded against a local BuildBase stack; still stretches are shortened. [Watch it as an MP4](../.github/media/with-buildbase.mp4).
+
 ## Deploy your own
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=with-buildbase&project-name=with-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,NEXT_PUBLIC_BUILDBASE_SERVER_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fdocs.buildbase.app%2Fquick-start%2Fquickstart)

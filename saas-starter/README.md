@@ -11,6 +11,21 @@
 
 **No database.** The Postgres, Drizzle and migration setup is gone, along with `bcryptjs`, `jose`, `stripe`, `swr` and `zod`. The TypeScript in `app/`, `components/` and `lib/` went from 3,586 lines to 1,773.
 
+## See it working
+
+**Pricing, sign-up, a teammate, and a trial through Stripe Checkout.**
+
+![Pricing, sign-up, a teammate, and a trial through Stripe Checkout](../.github/media/saas-starter.gif)
+
+1. The pricing page reads the Base and Plus plans from BuildBase: $8 and $12 a month, with a 7-day trial.
+2. Sign up on the hosted page and land on the team dashboard.
+3. Add a teammate who already has an account, as an editor.
+4. **Get Started** opens Stripe Checkout in test mode. The trial needs no card, and the team is on Base when it comes back.
+
+<table><tr><td width="33%"><img src="../.github/media/saas-starter-pricing.png" alt="Plans from BuildBase"></td><td width="33%"><img src="../.github/media/saas-starter.png" alt="The team"></td><td width="33%"><img src="../.github/media/saas-starter-plan.png" alt="On the plan, trialing"></td></tr><tr><td align="center"><sub>Plans from BuildBase</sub></td><td align="center"><sub>The team</sub></td><td align="center"><sub>On the plan, trialing</sub></td></tr></table>
+
+Recorded against a local BuildBase stack with Stripe in test mode; still stretches are shortened. [Watch it as an MP4](../.github/media/saas-starter.mp4).
+
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=saas-starter&project-name=saas-starter-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fsaas-starter%23set-up-buildbase)

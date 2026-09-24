@@ -2,11 +2,13 @@
 
 Working apps built on [BuildBase](https://buildbase.app): auth, workspaces, billing and credits from one SDK. Most are popular open-source templates with their auth, teams or billing swapped for BuildBase, so you can read the diff against an app you already know.
 
-Each folder is a complete app with its own README, a Deploy button and the exact console steps. Pick the one closest to what you are building.
+Each folder is a complete app with its own README, a Deploy button and the exact console steps. Every README opens with a recorded walkthrough of the app running, so you can see what it does before you set anything up. Pick the one closest to what you are building.
 
 ## Start here
 
 ### [with-buildbase](with-buildbase)
+
+<a href="with-buildbase"><img src=".github/media/with-buildbase.png" alt="with-buildbase: see it working" width="720"></a>
 
 **Sign-in for a Next.js app, and nothing else.** A hosted sign-in page, a session in an httpOnly cookie, and the user in client and server components. The smallest working integration.
 
@@ -18,6 +20,8 @@ Own code · Next.js · about 5 minutes
 
 ### [ai-chatbot](ai-chatbot)
 
+<a href="ai-chatbot"><img src=".github/media/ai-chatbot.png" alt="ai-chatbot: see it working" width="720"></a>
+
 **Every chat message spends a credit.** Vercel's Chatbot with BuildBase sign-in, a starting balance per workspace, and the credit store when it runs out. Streaming, tools, artifacts and history are unchanged.
 
 Based on [vercel/chatbot](https://github.com/vercel/chatbot) (21k★, Apache-2.0) · Next.js · 15-25 minutes
@@ -25,6 +29,8 @@ Based on [vercel/chatbot](https://github.com/vercel/chatbot) (21k★, Apache-2.0
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-chatbot&project-name=ai-chatbot-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,AI_GATEWAY_API_KEY,POSTGRES_URL,BLOB_READ_WRITE_TOKEN,REDIS_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-chatbot)
 
 ### [ai-image-credits](ai-image-credits)
+
+<a href="ai-image-credits"><img src=".github/media/ai-image-credits.png" alt="ai-image-credits: see it working" width="720"></a>
 
 **Pay per generated image.** roomGPT with its per-IP rate limit replaced by credits: 3 free on sign-up, 1 per room, checked before the model runs and charged only once the image exists. Runs in a labelled demo mode without a Replicate key.
 
@@ -36,6 +42,8 @@ Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · 
 
 ### [saas-starter](saas-starter)
 
+<a href="saas-starter"><img src=".github/media/saas-starter.png" alt="saas-starter: see it working" width="720"></a>
+
 **A SaaS starter without the plumbing.** The Next.js SaaS Starter with its hand-built auth, teams and Stripe code deleted: BuildBase workspaces, roles, plans, trials and checkout instead. No database, and half the TypeScript.
 
 Based on [nextjs/saas-starter](https://github.com/nextjs/saas-starter) (16k★, MIT) · Next.js · 15-20 minutes
@@ -43,6 +51,8 @@ Based on [nextjs/saas-starter](https://github.com/nextjs/saas-starter) (16k★, 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=saas-starter&project-name=saas-starter-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fsaas-starter)
 
 ### [admin-dashboard](admin-dashboard)
+
+<a href="admin-dashboard"><img src=".github/media/admin-dashboard.png" alt="admin-dashboard: see it working" width="720"></a>
 
 **A Vite admin dashboard, made real.** Shadcn Admin's mock sign-in, team switcher, users table and account forms, now backed by BuildBase. Also the example for apps that are not Next.js: three small serverless functions do the auth.
 
@@ -53,6 +63,8 @@ Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k�
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)
+
+<a href="nextjs-boilerplate"><img src=".github/media/nextjs-boilerplate.png" alt="nextjs-boilerplate: see it working" width="720"></a>
 
 **The Clerk swap, done once so you can read the diff.** Next.js Boilerplate with Clerk's middleware, provider, sign-in, user profile and `currentUser()` replaced. i18n, Drizzle, Arcjet, Sentry and the strict lint setup are upstream's and still pass.
 

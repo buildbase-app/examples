@@ -12,6 +12,21 @@
 
 Dashboard, Tasks, Apps, Chats and the error pages are upstream's, untouched. `@clerk/react` and the `/clerk` demo section are gone, along with `zustand`, `input-otp`, `react-day-picker` and `@radix-ui/react-switch`, which only the mock pages used. Upstream's lint, knip, Prettier and its 83 browser tests pass.
 
+## See it working
+
+**Guarded pages, real members, teams and account screens.**
+
+![Guarded pages, real members, teams and account screens](../.github/media/admin-dashboard.gif)
+
+1. `/users` needs a session, so it goes to sign-in and comes back after the hosted page.
+2. Add a teammate who has an account, as an editor, then make them a viewer.
+3. The team switcher lists the user's workspaces; **Add team** creates one.
+4. Upstream's dashboard is untouched. **Settings → Account** opens the SDK's screens.
+
+<table><tr><td width="33%"><img src="../.github/media/admin-dashboard.png" alt="Members and roles"></td><td width="33%"><img src="../.github/media/admin-dashboard-teams.png" alt="Teams are workspaces"></td><td width="33%"><img src="../.github/media/admin-dashboard-account.png" alt="Account screens"></td></tr><tr><td align="center"><sub>Members and roles</sub></td><td align="center"><sub>Teams are workspaces</sub></td><td align="center"><sub>Account screens</sub></td></tr></table>
+
+Recorded against a local BuildBase stack; still stretches are shortened. [Watch it as an MP4](../.github/media/admin-dashboard.mp4).
+
 ## How auth works without a Next.js server
 
 The client secret must stay on a server, so `server/auth.ts` holds three plain `Request -> Response` handlers:

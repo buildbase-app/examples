@@ -14,6 +14,21 @@
 
 Two dependencies out (`@clerk/nextjs`, `@clerk/localizations`), one in (`@buildbase/sdk`). Lint, types, knip, the i18n check and the unit tests pass with upstream's own strict config.
 
+## See it working
+
+**The Clerk-shaped flow, running on BuildBase.**
+
+![The Clerk-shaped flow, running on BuildBase](../.github/media/nextjs-boilerplate.gif)
+
+1. The landing page is upstream's. `/dashboard` redirects to sign-in.
+2. Sign up on the hosted page. The dashboard greets the email it read on the server.
+3. **Manage your account** replaces Clerk's `<UserProfile />`: each button opens an SDK screen, such as security and passkeys.
+4. The same dashboard in French: upstream's i18n is untouched.
+
+<table><tr><td width="33%"><img src="../.github/media/nextjs-boilerplate.png" alt="Dashboard, user read on the server"></td><td width="33%"><img src="../.github/media/nextjs-boilerplate-account.png" alt="Account page"></td><td width="33%"><img src="../.github/media/nextjs-boilerplate-security.png" alt="SDK security screen"></td></tr><tr><td align="center"><sub>Dashboard, user read on the server</sub></td><td align="center"><sub>Account page</sub></td><td align="center"><sub>SDK security screen</sub></td></tr></table>
+
+Recorded against a local BuildBase stack; still stretches are shortened. [Watch it as an MP4](../.github/media/nextjs-boilerplate.mp4).
+
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=nextjs-boilerplate&project-name=nextjs-boilerplate-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,DATABASE_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console%2C%20and%20a%20Postgres%20URL&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fnextjs-boilerplate%23set-up-buildbase)

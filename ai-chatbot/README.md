@@ -11,6 +11,21 @@ This is [Vercel's Chatbot](https://github.com/vercel/chatbot) (21k★), the same
 | No way to charge users | Stripe checkout for credit packs, built in |
 | No workspaces | A workspace per user (teams can share one) |
 
+## See it working
+
+**Sign up, chat, spend a credit, open the store.**
+
+![Sign up, chat, spend a credit, open the store](../.github/media/ai-chatbot.gif)
+
+1. Sign up on the hosted page from the welcome screen.
+2. The new workspace starts with 20 credits, granted by a "Workspace Created" workflow. The balance sits under the user in the sidebar.
+3. One message: the balance drops to 19. (The reply comes from the AI SDK's mock model; the recording ran without an AI Gateway key.)
+4. **Buy credits** opens the credit store with the packages you set up.
+
+<table><tr><td width="50%"><img src="../.github/media/ai-chatbot.png" alt="19 credits after one message"></td><td width="50%"><img src="../.github/media/ai-chatbot-store.png" alt="The credit store"></td></tr><tr><td align="center"><sub>19 credits after one message</sub></td><td align="center"><sub>The credit store</sub></td></tr></table>
+
+Recorded against a local BuildBase stack with Stripe in test mode; still stretches are shortened. [Watch it as an MP4](../.github/media/ai-chatbot.mp4).
+
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-chatbot&project-name=ai-chatbot-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-chatbot%23set-up-buildbase)

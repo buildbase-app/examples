@@ -11,6 +11,21 @@
 
 `@upstash/ratelimit`, `@upstash/redis` and `request-ip` are gone; `@buildbase/sdk` is in. Next.js is updated from 13.4 to 14.2.
 
+## See it working
+
+**Free credits, pay per image, buy more.**
+
+![Free credits, pay per image, buy more](../.github/media/ai-image-credits.gif)
+
+1. Sign in for 3 free credits.
+2. Three generations with the sample photo: 3, 2, 1, 0. (Demo mode: no Replicate key, so the result is a labelled sample image.)
+3. The fourth is refused, and the credit store opens.
+4. Buy 20 credits with a Stripe test card, come back to 20, generate again: 19.
+
+<table><tr><td width="33%"><img src="../.github/media/ai-image-credits.png" alt="A generation, one credit spent"></td><td width="33%"><img src="../.github/media/ai-image-credits-store.png" alt="Out of credits: the store"></td><td width="33%"><img src="../.github/media/ai-image-credits-purchased.png" alt="Back from Stripe with 20"></td></tr><tr><td align="center"><sub>A generation, one credit spent</sub></td><td align="center"><sub>Out of credits: the store</sub></td><td align="center"><sub>Back from Stripe with 20</sub></td></tr></table>
+
+Recorded against a local BuildBase stack with Stripe in test mode; still stretches are shortened. [Watch it as an MP4](../.github/media/ai-image-credits.mp4).
+
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-image-credits&project-name=ai-image-credits-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,REPLICATE_API_KEY&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console%2C%20and%20a%20Replicate%20token&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-image-credits%23set-up-buildbase)
