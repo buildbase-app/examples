@@ -17,7 +17,7 @@ Sign in on BuildBase's hosted page, see your profile, workspace and credit balan
 
 <table><tr><td width="33%"><img src="../.github/media/hono-signed-out.png" alt="Signed out"></td><td width="33%"><img src="../.github/media/hono-node.png" alt="Signed in on Node.js"></td><td width="33%"><img src="../.github/media/hono.png" alt="Out of credits on Workers"></td></tr><tr><td align="center"><sub>Signed out</sub></td><td align="center"><sub>Signed in on Node.js</sub></td><td align="center"><sub>Out of credits on Workers</sub></td></tr></table>
 
-The four servers ran side by side against a local BuildBase stack, with one `.env`. The session carries across because localhost shares cookies between ports and all four sign with the same `COOKIE_SECRET`; in production each deployment has its own domain. Separately, each runtime was signed in on its own through the hosted page (sign-up on Node.js, a magic link on the others) and spent a credit through `POST /api/spend`: 3 went to 0 across Bun, Deno and Workers, and the next spend answered 402. Still stretches are shortened. [Watch it as an MP4](../.github/media/hono.mp4).
+The four servers ran side by side against a local BuildBase stack, with one `.env`. The session carries across because localhost shares cookies between ports and all four sign with the same `COOKIE_SECRET`; in production each deployment has its own domain. Separately, each runtime was signed in on its own through the hosted page (sign-up on Node.js, a magic link on the others) and spent through `POST /api/spend`. Node's spend came before the sign-up grant landed and answered 402; Bun, Deno and Workers then took the 3 credits to 0. Still stretches are shortened. [Watch it as an MP4](../.github/media/hono.mp4).
 
 ## How it works
 
