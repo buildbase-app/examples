@@ -18,8 +18,11 @@ export const myProvider = isTestEnvironment
   : null;
 
 export function getLanguageModel(modelId: string) {
+  // Modified from vercel/chatbot: in test mode every chat model answers with
+  // the mock. Upstream registered only "chat-model", so the default model
+  // selection threw and a local run without a gateway key could not chat.
   if (isTestEnvironment && myProvider) {
-    return myProvider.languageModel(modelId);
+    return myProvider.languageModel("chat-model");
   }
 
   return gateway.languageModel(modelId);
