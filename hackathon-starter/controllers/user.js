@@ -57,7 +57,10 @@ exports.getBuildbaseCallback = async (req, res, next) => {
     req.session.buildbaseSessionId = sessionId;
     const profile = await buildbase.forRequest(req).users.getProfile();
     // The profile API returns `id`; older SDK types call it `_id`.
-    const buildbaseId = String(profile.id || profile._id);
+    const rawId = profile.id || profile._id;
+    // Never String() a missing ID: every such user would share one account.
+    if (!rawId || !profile.email) throw new Error('BuildBase returned a profile without an ID or email.');
+    const buildbaseId = String(rawId);
     const email = validator.normalizeEmail(profile.email, { gmail_remove_dots: false });
 
     let user = await User.findOne({ buildbase: { $eq: buildbaseId } });

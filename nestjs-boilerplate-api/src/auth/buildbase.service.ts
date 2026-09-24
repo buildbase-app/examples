@@ -97,6 +97,8 @@ export class BuildBaseService {
       });
     // The profile API returns `id`; older SDK types call it `_id`.
     const { id, _id, email, name } = user as typeof user & { id?: string };
+    // Never String() a missing ID: every such user would share one account.
+    if (!(id ?? _id) || !email) throw new UnauthorizedException();
     const profile = { id: String(id ?? _id), email, name };
     this.profiles.set(sessionId, {
       profile,
