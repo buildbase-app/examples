@@ -3,13 +3,10 @@
 import { ChevronUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { User } from "@/app/(auth)/auth";
-import {
-  useCreditBalance,
-  useSaaSAuth,
-  useSaaSWorkspaces,
-} from "@buildbase/sdk/react";
+import { useSaaSAuth } from "@buildbase/sdk/react";
 import { useTheme } from "next-themes";
 import { useCallback } from "react";
+import { useLiveCreditBalance } from "@/hooks/use-live-credit-balance";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,8 +35,7 @@ export function SidebarUserNav({ user }: { user: User }) {
   // Modified from vercel/chatbot: BuildBase session, and the workspace's
   // credit balance, instead of NextAuth and guest accounts.
   const { isLoading, signOut, openCreditStore } = useSaaSAuth();
-  const { currentWorkspace } = useSaaSWorkspaces();
-  const { balance } = useCreditBalance(currentWorkspace?._id);
+  const { balance } = useLiveCreditBalance();
   const { setTheme, resolvedTheme } = useTheme();
   const handleThemeSelect = useCallback(() => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");

@@ -3,8 +3,13 @@
 
 import type { UseChatHelpers } from "@ai-sdk/react";
 import { useChat } from "@ai-sdk/react";
-import { invalidateCreditBalance } from "@buildbase/sdk";
-import { useSaaSAuth, useSaaSWorkspaces } from "@buildbase/sdk/react";
+// invalidateCreditBalance must come from /react: the root entry is a separate
+// bundle with its own copy, which the balance hook never hears from.
+import {
+  invalidateCreditBalance,
+  useSaaSAuth,
+  useSaaSWorkspaces,
+} from "@buildbase/sdk/react";
 import { DefaultChatTransport } from "ai";
 import { usePathname } from "next/navigation";
 import {
