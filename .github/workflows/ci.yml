@@ -1,0 +1,72 @@
+# Every example installs, typechecks and builds on its own, with no BuildBase
+# env set: an unconfigured example must build and show its setup notice rather
+# than fail. Each keeps its upstream package manager and lockfile.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  example:
+    name: ${{ matrix.example }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - example: with-buildbase
+            pm: npm
+            check: npx tsc --noEmit
+            build: npm run build
+          - example: ai-chatbot
+            pm: pnpm
+            check: pnpm exec tsc --noEmit
+            # Migrations are skipped without POSTGRES_URL.
+            build: pnpm build
+          - example: saas-starter
+            pm: pnpm
+            check: pnpm typecheck
+            build: pnpm build
+          - example: nextjs-boilerplate
+            pm: npm
+            check: npm run lint && npm run check:types && npm test
+            # Upstream's own CI build: an in-memory PGlite for the migrations.
+            build: npm run build-local
+          - example: ai-image-credits
+            pm: npm
+            check: npx tsc --noEmit
+            build: npm run build
+          - example: admin-dashboard
+            pm: pnpm
+            check: pnpm lint && pnpm knip
+            build: pnpm build
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        if: matrix.pm == 'pnpm'
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: ${{ matrix.pm }}
+          cache-dependency-path: ${{ matrix.example }}/${{ matrix.pm == 'pnpm' && 'pnpm-lock.yaml' || 'package-lock.json' }}
+
+      - name: Install
+        run: ${{ matrix.pm == 'pnpm' && 'pnpm install --frozen-lockfile' || 'npm ci' }}
+
+      - name: Check
+        run: ${{ matrix.check }}
+
+      - name: Build
+        run: ${{ matrix.build }}
