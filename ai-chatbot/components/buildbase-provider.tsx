@@ -3,7 +3,12 @@
 import "@buildbase/sdk/css";
 
 import { ApiVersion } from "@buildbase/sdk";
-import { SaaSOSProvider } from "@buildbase/sdk/react";
+import {
+  SaaSOSProvider,
+  useSaaSAuth,
+  useSaaSWorkspaces,
+} from "@buildbase/sdk/react";
+import { useEffect } from "react";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -28,6 +33,33 @@ function SetupNotice() {
       </p>
     </main>
   );
+}
+
+/**
+ * Loads the signed-in user's workspaces and selects one. Nothing else in this
+ * app renders a workspace switcher, and the SDK only fetches the list when
+ * asked. The first fetch is also what creates a new user's first workspace
+ * (with auto-create on), which fires the "Workspace Created" workflow that
+ * grants the starting credits.
+ */
+function WorkspaceLoader() {
+  const { isAuthenticated } = useSaaSAuth();
+  const { currentWorkspace, fetchWorkspaces, setCurrentWorkspace, workspaces } =
+    useSaaSWorkspaces();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchWorkspaces();
+    }
+  }, [isAuthenticated, fetchWorkspaces]);
+
+  useEffect(() => {
+    if (!currentWorkspace && workspaces?.length) {
+      setCurrentWorkspace(workspaces[0]);
+    }
+  }, [currentWorkspace, workspaces, setCurrentWorkspace]);
+
+  return null;
 }
 
 /** Connects the app to your BuildBase org: sign-in, workspaces and credits. */
@@ -68,6 +100,7 @@ export function BuildBaseProvider({ children }: { children: React.ReactNode }) {
       }
       version={ApiVersion.V1}
     >
+      <WorkspaceLoader />
       {children}
     </SaaSOSProvider>
   );
