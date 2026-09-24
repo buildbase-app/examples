@@ -55,7 +55,12 @@ function useMembers() {
 function ManageSubscription() {
   const { currentWorkspace } = useSaaSWorkspaces();
   const { openWorkspaceSettings } = useSaaSAuth();
-  const { subscription, loading } = useSubscription(currentWorkspace?._id);
+  const { subscription, loading: fetching } = useSubscription(
+    currentWorkspace?._id
+  );
+  // Until a workspace is selected there is nothing to fetch, and the hook
+  // reports "not loading, no plan" - which read as "Free" on every reload.
+  const loading = fetching || !currentWorkspace;
   const status = subscription?.subscription?.subscriptionStatus;
   return (
     <Card className="mb-8">
@@ -70,11 +75,13 @@ function ManageSubscription() {
               {loading ? '...' : subscription?.plan?.name || 'Free'}
             </p>
             <p className="text-sm text-muted-foreground">
-              {status === 'active'
-                ? `Billed ${subscription?.subscription?.billingInterval ?? 'monthly'}`
-                : status === 'trialing'
-                  ? 'Trial period'
-                  : 'No active subscription'}
+              {loading
+                ? '\u00a0'
+                : status === 'active'
+                  ? `Billed ${subscription?.subscription?.billingInterval ?? 'monthly'}`
+                  : status === 'trialing'
+                    ? 'Trial period'
+                    : 'No active subscription'}
             </p>
           </div>
           <Button
@@ -169,9 +176,12 @@ function TeamMembers({
 
 function InviteTeamMember({
   canManage,
+  checking,
   reload,
 }: {
   canManage: boolean;
+  /** Members not loaded yet, so the role is unknown rather than "not admin". */
+  checking: boolean;
   reload: () => Promise<void>;
 }) {
   const { currentWorkspace, addUser } = useSaaSWorkspaces();
@@ -253,7 +263,7 @@ function InviteTeamMember({
           </Button>
         </form>
       </CardContent>
-      {!canManage && (
+      {!canManage && !checking && (
         <CardFooter>
           <p className="text-sm text-muted-foreground">
             You must be a team admin to invite new members.
@@ -275,7 +285,11 @@ export default function SettingsPage() {
       <h1 className="text-lg lg:text-2xl font-medium mb-6">Team Settings</h1>
       <ManageSubscription />
       <TeamMembers members={members} canManage={canManage} reload={reload} />
-      <InviteTeamMember canManage={canManage} reload={reload} />
+      <InviteTeamMember
+        canManage={canManage}
+        checking={members === null}
+        reload={reload}
+      />
     </section>
   );
 }
