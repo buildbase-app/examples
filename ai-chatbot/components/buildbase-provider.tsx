@@ -44,14 +44,28 @@ function SetupNotice() {
  */
 function WorkspaceLoader() {
   const { isAuthenticated } = useSaaSAuth();
-  const { currentWorkspace, fetchWorkspaces, setCurrentWorkspace, workspaces } =
-    useSaaSWorkspaces();
+  const {
+    currentWorkspace,
+    fetchWorkspaces,
+    setCurrentWorkspace,
+    workspaces,
+    loading,
+  } = useSaaSWorkspaces();
 
+  // The sidebar's WorkspaceSwitcher fetches the list too. Two concurrent
+  // fetches left the SDK's loading flag stuck, so give the switcher the first
+  // chance and fetch only if nothing has.
   useEffect(() => {
-    if (isAuthenticated) {
-      fetchWorkspaces();
+    if (!isAuthenticated) {
+      return;
     }
-  }, [isAuthenticated, fetchWorkspaces]);
+    const timer = setTimeout(() => {
+      if (!workspaces?.length && !loading) {
+        fetchWorkspaces();
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [isAuthenticated, fetchWorkspaces, workspaces, loading]);
 
   useEffect(() => {
     if (!currentWorkspace && workspaces?.length) {

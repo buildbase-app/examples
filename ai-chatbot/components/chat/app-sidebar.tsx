@@ -1,4 +1,5 @@
-// Modified from vercel/chatbot for BuildBase: User type comes from app/(auth)/auth instead of next-auth.
+// Modified from vercel/chatbot for BuildBase: User type comes from app/(auth)/auth
+// instead of next-auth, and the footer adds the BuildBase workspace switcher.
 "use client";
 
 import {
@@ -19,6 +20,7 @@ import {
   SidebarHistory,
 } from "@/components/chat/sidebar-history";
 import { SidebarUserNav } from "@/components/chat/sidebar-user-nav";
+import { WorkspaceSwitcher } from "@/components/workspace-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -150,7 +152,12 @@ export function AppSidebar({ user }: { user: User | undefined }) {
           <SidebarHistory user={user} />
         </SidebarContent>
         <SidebarFooter className="border-t border-sidebar-border pt-2 pb-3">
-          {user ? <SidebarUserNav user={user} /> : null}
+          {user ? (
+            <>
+              <WorkspaceSwitcher />
+              <SidebarUserNav user={user} />
+            </>
+          ) : null}
         </SidebarFooter>
         <SidebarRail />
       </Sidebar>

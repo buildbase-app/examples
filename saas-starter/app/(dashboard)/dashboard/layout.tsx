@@ -1,8 +1,11 @@
+// Modified from nextjs/saas-starter: team switcher (BuildBase WorkspaceSwitcher)
+// at the top of the sidebar; the Activity link is gone with the activity log.
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { TeamSwitcher } from '@/components/team-switcher';
 import { Button } from '@/components/ui/button';
 import { Users, Settings, Shield, Menu } from 'lucide-react';
 
@@ -47,6 +50,9 @@ export default function DashboardLayout({
           }`}
         >
           <nav className="h-full overflow-y-auto p-4">
+            <div className="mb-4">
+              <TeamSwitcher />
+            </div>
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} passHref>
                 <Button

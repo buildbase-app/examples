@@ -16,17 +16,33 @@ const configured = Boolean(
 );
 
 /**
- * Loads the signed-in user's workspaces (their "team") and selects one. The
- * SDK fetches the list only when asked; the first fetch also auto-creates a
- * new user's workspace.
+ * Selects the user's first workspace (their "team") once the list is in. The
+ * TeamSwitcher in the dashboard fetches the list - that first fetch also
+ * auto-creates a new user's workspace - but only auto-selects when it is
+ * hidden, so pages that read currentWorkspace need this.
+ *
+ * Pages outside the dashboard (pricing) have no switcher, so the list is
+ * fetched here too, but only when nothing has loaded it yet: two concurrent
+ * fetches left the SDK's loading flag stuck and the switcher said "Loading"
+ * forever.
  */
 function WorkspaceLoader() {
   const { isAuthenticated } = useSaaSAuth();
-  const { currentWorkspace, fetchWorkspaces, setCurrentWorkspace, workspaces } =
-    useSaaSWorkspaces();
+  const {
+    currentWorkspace,
+    fetchWorkspaces,
+    setCurrentWorkspace,
+    workspaces,
+    loading,
+  } = useSaaSWorkspaces();
   useEffect(() => {
-    if (isAuthenticated) fetchWorkspaces();
-  }, [isAuthenticated, fetchWorkspaces]);
+    if (!isAuthenticated) return;
+    // Give a mounted TeamSwitcher the first chance to fetch.
+    const timer = setTimeout(() => {
+      if (!workspaces?.length && !loading) fetchWorkspaces();
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [isAuthenticated, fetchWorkspaces, workspaces, loading]);
   useEffect(() => {
     if (!currentWorkspace && workspaces?.length) {
       setCurrentWorkspace(workspaces[0]);

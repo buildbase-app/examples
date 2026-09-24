@@ -16,7 +16,7 @@ npx create-next-app --example https://github.com/buildbase-app/examples/tree/mai
 
 1. **Create an organization** at [console.buildbase.app](https://console.buildbase.app).
 2. **Copy the org ID** from **Settings → General**.
-3. **Create an auth client** under **User Management → Access → Authentication**. Copy the client ID and the client secret. The secret is shown once.
+3. **Create an auth client** under **User Management → Authentication**. Copy the client ID and the client secret. The secret is shown once.
 4. **Register your redirect URL** on that client. Locally it is `http://localhost:3000`. On Vercel, add your deployment URL exactly; wildcards like `*.vercel.app` are not accepted.
 5. **Enable at least one sign-in method** on the same page, for example email and password, Google, or a magic link.
 6. Copy the env file and fill it in:

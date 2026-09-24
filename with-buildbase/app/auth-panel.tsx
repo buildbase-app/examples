@@ -1,6 +1,6 @@
 'use client';
 
-import { useSaaSAuth } from '@buildbase/sdk/react';
+import { useSaaSAuth, WorkspaceSwitcher } from '@buildbase/sdk/react';
 import Link from 'next/link';
 
 export function AuthPanel() {
@@ -16,6 +16,19 @@ export function AuthPanel() {
         <p className="muted">Signed in as</p>
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+        <div className="switcher">
+          {/* The SDK's switcher: your workspaces, and every prebuilt settings
+              screen (profile, security, devices, members, billing...). */}
+          <WorkspaceSwitcher
+            trigger={(isLoading, workspace) => (
+              <span className="button secondary block">
+                {isLoading
+                  ? 'Loading workspace...'
+                  : `${workspace?.name ?? 'Workspace'} ▾ settings`}
+              </span>
+            )}
+          />
+        </div>
         <div className="row">
           <Link className="button" href="/profile">
             Server-rendered profile
