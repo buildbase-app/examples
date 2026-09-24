@@ -1,0 +1,10 @@
+# Cloudflare Workers, local only (wrangler dev). In production use `wrangler secret put`.
+BUILDBASE_ORG_ID=
+BUILDBASE_CLIENT_ID=
+BUILDBASE_CLIENT_SECRET=
+# Signs the session cookies. Any long random string: openssl rand -hex 32
+COOKIE_SECRET=
+
+# Optional
+# BUILDBASE_SERVER_URL=https://api.console.buildbase.app
+# APP_URL=https://your-app.example.com   # defaults to the request's origin

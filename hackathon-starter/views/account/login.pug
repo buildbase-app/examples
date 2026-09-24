@@ -1,0 +1,22 @@
+extends ../layout
+//- Modified from sahat/hackathon-starter: the email/password, email-link,
+//- passkey and social buttons are replaced by BuildBase's hosted page, which
+//- offers sign-in and sign-up with whatever methods the org enables.
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Sign in
+  .row
+    .col-md-7.offset-md-3
+      if !buildbaseConfigured
+        .alert.alert-warning
+          | Set <code>BUILDBASE_ORG_ID</code>, <code>BUILDBASE_CLIENT_ID</code> and <code>BUILDBASE_CLIENT_SECRET</code> in <code>.env</code> to enable sign-in. The README walks through each one.
+      p
+        | Sign in or create an account on the secure sign-in page. Email, magic link, social login, passkeys and two-factor authentication are all there, as your BuildBase organization enables them.
+      form(method='POST', action='/login')
+        input(type='hidden', name='_csrf', value=_csrf)
+        button.btn.btn-primary(type='submit', disabled=!buildbaseConfigured)
+          i.far.fa-user.fa-sm.me-2
+          | Continue to sign in
+      p.mt-3.text-muted.small
+        | Linking GitHub, Google and other accounts, to use their APIs in the API examples, is on your account page once you are signed in.

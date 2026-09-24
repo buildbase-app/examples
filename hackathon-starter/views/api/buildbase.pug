@@ -1,0 +1,51 @@
+extends ../layout
+//- Added for the BuildBase example: the server SDK, called from Express.
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h2
+      i.fas.fa-cubes.me-2
+      | BuildBase API
+
+  .btn-group.mb-4.d-flex(role='group')
+    a.btn.btn-primary.w-100(href='https://docs.buildbase.app/server-sdk/overview', target='_blank')
+      i.far.fa-check-square.fa-sm.me-2
+      | Server SDK docs
+    a.btn.btn-primary.w-100(href='https://github.com/buildbase-app/examples/tree/main/hackathon-starter', target='_blank')
+      i.fas.fa-code.fa-sm.me-2
+      | This example's code
+
+  p
+    | Everything below is read on the server, in <code>controllers/buildbase.js</code>, with <code>buildbase.withSession(req.session.buildbaseSessionId)</code>.
+
+  .row
+    .col-md-4
+      .card.mb-3
+        .card-header You
+        .card-body
+          p.mb-1: strong= profile.name
+          p.mb-0.text-muted= profile.email
+    .col-md-4
+      .card.mb-3
+        .card-header Workspace
+        .card-body
+          if workspace
+            p.mb-1: strong= workspace.name
+            p.mb-0.text-muted #{ (workspace.users || []).length } member(s)
+          else
+            p.mb-0.text-muted No workspace yet.
+    .col-md-4
+      .card.mb-3
+        .card-header Credits
+        .card-body
+          if balance
+            p.mb-2
+              span#credit-balance.h3= balance.available
+              |
+              | available
+            form(method='POST', action='/api/buildbase/credits')
+              input(type='hidden', name='_csrf', value=_csrf)
+              input(type='hidden', name='key', value=spendKey)
+              button.btn.btn-outline-primary.btn-sm(type='submit') Spend 1 credit
+          else
+            p.mb-0.text-muted Credits are not set up for this workspace.

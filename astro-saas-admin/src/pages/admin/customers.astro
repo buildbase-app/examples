@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { CustomerService } from "@/lib/services/customer";
+
+const { DB } = Astro.locals.runtime.env;
+
+const customerService = new CustomerService(DB);
+const customers = await customerService.getAll();
+
+import { CustomersTable } from '@/components/admin/customers-table';
+import { CreateCustomerButton } from '@/components/admin/create-customer';
+import { canWrite } from '@/lib/buildbase';
+
+// Changed for the BuildBase example: only admins and editors see the button,
+// and it no longer carries the API token.
+const writable = canWrite(Astro.locals.member?.role ?? null);
+---
+
+<Layout title="Customers">
+  {customers.length ? (
+    <CustomersTable data={customers} />
+  ) : (
+    <p class="font-medium text-muted-foreground">
+      No customers yet. Try creating one using the API or by selecting "Create New Customer" above.
+    </p>
+  )}
+
+  <div slot="actions">
+    {writable && <CreateCustomerButton client:only="react" />}
+  </div>
+</Layout>
