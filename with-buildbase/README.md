@@ -2,6 +2,8 @@
 
 Sign-in for a Next.js app, using [BuildBase](https://buildbase.app). This is the smallest working integration. You get a hosted sign-in page on your own org, a session kept in an httpOnly cookie, and the signed-in user available in both client and server components. Nothing else is added.
 
+**Guide:** [BuildBase on Next.js](https://www.buildbase.app/guides/buildbase-on-nextjs) walks through the same setup step by step, and why each piece is there.
+
 ## See it working
 
 **Sign-in, a workspace and the user on the server, start to finish.**

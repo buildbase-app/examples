@@ -2,6 +2,8 @@
 
 [Cloudflare's SaaS Admin Template](https://github.com/cloudflare/templates/tree/main/saas-admin-template) is an admin dashboard for customers and subscriptions: Astro with React islands and shadcn/ui, on Cloudflare Workers, with D1 for data and a Workflow per customer. Here [BuildBase](https://buildbase.app) decides who may use it. It is the example for **Astro**, and for **roles from a BuildBase workspace**.
 
+**Guide:** [BuildBase on Astro](https://www.buildbase.app/guides/buildbase-on-astro) walks through the same setup step by step, and why each piece is there.
+
 Upstream, `/admin` has no sign-in at all: anyone with the URL sees every customer. Its API checks one shared `API_TOKEN`, and the admin's own "Create" dialogs work by handing that token to the browser as a React prop. Here:
 
 | Upstream | With BuildBase |

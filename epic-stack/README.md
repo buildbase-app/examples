@@ -7,6 +7,10 @@ authentication is replaced by [BuildBase](https://buildbase.app). It is the
 example for **Remix / React Router v7**, and for using the React SDK in a
 server-rendered app.
 
+**Guide:**
+[BuildBase on React Router (Remix)](https://www.buildbase.app/guides/buildbase-on-react-router)
+walks through the same setup step by step, and why each piece is there.
+
 | Upstream builds itself                                           | Here, BuildBase does it                                                               |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Username and password (bcrypt), sign-up, onboarding              | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them |

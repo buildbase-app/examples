@@ -2,6 +2,8 @@
 
 [Hackathon Starter](https://github.com/sahat/hackathon-starter) (35k★) is the Express + Pug boilerplate with sign-in, an account page and some 30 API examples. Here its whole sign-in system is replaced by [BuildBase](https://buildbase.app), and a BuildBase card joins the API examples. It is the example for **a plain Express server, with no React at all**.
 
+**Guide:** [BuildBase on Express](https://www.buildbase.app/guides/buildbase-on-express) walks through the same setup step by step, and why each piece is there.
+
 | Upstream builds itself                                        | Here, BuildBase does it                                                                            |
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Email and password (bcrypt), sign-up, password reset          | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them              |

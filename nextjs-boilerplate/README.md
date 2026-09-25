@@ -2,6 +2,8 @@
 
 [Next.js Boilerplate](https://github.com/ixartz/Next-js-Boilerplate) (13k★) with Clerk swapped out for [BuildBase](https://buildbase.app). Everything else is upstream's: next-intl (English and French), Drizzle with PGlite, Arcjet, Sentry, PostHog, Vitest, Playwright, Storybook and the lint setup. It is the same swap you would make in your own Clerk app, done once so you can read the diff.
 
+**Guide:** [BuildBase on Next.js](https://www.buildbase.app/guides/buildbase-on-nextjs) walks through the same setup step by step, and why each piece is there.
+
 | Clerk in upstream | BuildBase here |
 | --- | --- |
 | `clerkMiddleware` guarding `/dashboard` in `src/proxy.ts` | A `bb-session` cookie check in the same file; Arcjet and i18n routing are untouched |

@@ -2,6 +2,8 @@
 
 [Start UI [web]](https://github.com/BearStudio/start-ui-web) (1.7k★) is BearStudio's opinionated starter on **TanStack Start**, with better-auth, oRPC, Prisma, an admin area and i18n. Here [BuildBase](https://buildbase.app) becomes its way in. It is the example for **TanStack Start**, and for **adding BuildBase to an app that already uses an auth library**.
 
+**Guide:** [BuildBase on TanStack Start](https://www.buildbase.app/guides/buildbase-on-tanstack-start) walks through the same setup step by step, and why each piece is there.
+
 | Upstream | Here |
 | --- | --- |
 | Email one-time code (better-auth `emailOTP`), with a code-entry page and a login email | BuildBase's hosted page: email, magic link, social, passkeys, as the org enables them |

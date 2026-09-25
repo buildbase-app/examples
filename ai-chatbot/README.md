@@ -2,6 +2,8 @@
 
 A full-featured AI chatbot where **every message spends credits**. Users sign in with BuildBase, each gets a workspace with a starting credit balance, and when it runs out, the built-in credit store sells them more through Stripe.
 
+**Guide:** [BuildBase on Next.js](https://www.buildbase.app/guides/buildbase-on-nextjs) walks through the same setup step by step, and why each piece is there.
+
 This is [Vercel's Chatbot](https://github.com/vercel/chatbot) (21k★), the same app and the same AI SDK, with its authentication and usage limits replaced by [BuildBase](https://buildbase.app). Every other part is unchanged: streaming, tools, artifacts, file uploads and chat history. See [What changed](#what-changed).
 
 | Upstream (vercel/chatbot) | This example |

@@ -2,6 +2,8 @@
 
 [The official Fastify demo](https://github.com/fastify/demo) is the Fastify team's reference for how they would structure an application: a task API with MySQL through knex, sessions, role-based access, file uploads, CSV export, rate limiting, Swagger and a `node:test` suite. Here its sign-in is replaced by [BuildBase](https://buildbase.app), and creating a task spends a BuildBase credit. It is the example for **Fastify**, and for **metering an API per call**.
 
+**Guide:** [BuildBase on Fastify](https://www.buildbase.app/guides/buildbase-on-fastify) walks through the same setup step by step, and why each piece is there.
+
 | Upstream builds itself | Here, BuildBase does it |
 | --- | --- |
 | `POST /api/auth/login` with an email and password | A round trip through the hosted sign-in page: email, magic link, social, passkeys, as the org enables them |

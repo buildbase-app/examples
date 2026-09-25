@@ -2,6 +2,8 @@
 
 [Next.js SaaS Starter](https://github.com/nextjs/saas-starter) (16k★), with its hand-built auth, teams and Stripe code replaced by [BuildBase](https://buildbase.app). The pages, the design and the dashboard are the same. What is gone is the plumbing:
 
+**Guide:** [BuildBase on Next.js](https://www.buildbase.app/guides/buildbase-on-nextjs) walks through the same setup step by step, and why each piece is there.
+
 | Upstream builds itself | Here, BuildBase does it |
 | --- | --- |
 | Email/password auth with bcrypt and JWT cookies (`jose`) | Hosted sign-in: email, magic link, Google, GitHub, passkeys, whatever you enable |
