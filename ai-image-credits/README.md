@@ -2,6 +2,8 @@
 
 [roomGPT](https://github.com/Nutlope/roomGPT) (10k★): upload a photo of a room and get it back redesigned. Upstream caps every visitor at five generations a day by IP address, with Upstash Redis. Here, people sign in and **pay per generation with credits**: new accounts start with 3, and the credit store sells more through your own Stripe account. It is the smallest complete pay-per-use AI app we know of.
 
+**Guide:** [BuildBase on Next.js](https://www.buildbase.app/guides/buildbase-on-nextjs) walks through the same setup step by step, and why each piece is there.
+
 | Upstream | Here |
 | --- | --- |
 | Anonymous, 5 generations per IP per day (Upstash rate limit) | Sign in with BuildBase; each generation spends 1 credit from the user's workspace |

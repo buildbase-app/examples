@@ -2,6 +2,8 @@
 
 One [Hono](https://hono.dev) app with [BuildBase](https://buildbase.app) sign-in and credits that runs, unchanged, on **Node.js, Bun, Deno and Cloudflare Workers**. It is the example for **Hono**, and for **BuildBase outside Node**: the server SDK uses only `fetch` and other Web APIs, so it goes wherever Hono goes.
 
+**Guide:** [BuildBase on Hono](https://www.buildbase.app/guides/buildbase-on-hono) walks through the same setup step by step, and why each piece is there.
+
 Sign in on BuildBase's hosted page, see your profile, workspace and credit balance, and spend a credit from a form or from a JSON endpoint that answers 402 when the workspace is empty. There is no database: the session is a signed cookie, so it works the same in a Worker as in a long-running server.
 
 ## See it working

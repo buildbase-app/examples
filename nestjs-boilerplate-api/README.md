@@ -2,6 +2,8 @@
 
 [NestJS Boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★) is a REST API with users, roles, file uploads, i18n, Swagger and a choice of Postgres (TypeORM) or MongoDB (Mongoose). Here its authentication is replaced by [BuildBase](https://buildbase.app). It is the example for **NestJS**, and for **an API with no UI of its own**.
 
+**Guide:** [BuildBase on NestJS](https://www.buildbase.app/guides/buildbase-on-nestjs) walks through the same setup step by step, and why each piece is there.
+
 | Upstream builds itself                                             | Here, BuildBase does it                                                                                                                  |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Email register, confirm, login, forgot and reset password (bcrypt) | The hosted sign-in page: email, magic link, social, passkeys, as the org enables them                                                    |

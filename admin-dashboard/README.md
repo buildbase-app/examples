@@ -2,6 +2,8 @@
 
 [Shadcn Admin](https://github.com/satnaing/shadcn-admin) (14k★) is a Vite + React admin dashboard whose sign-in, teams, users and account pages are mock-ups. Here they are real, backed by [BuildBase](https://buildbase.app). It is also the example for **apps that are not Next.js**: a Vite SPA with three small serverless functions.
 
+**Guide:** [BuildBase on Vite](https://www.buildbase.app/guides/buildbase-on-vite) walks through the same setup step by step, and why each piece is there.
+
 | Upstream (mock)                                                      | Here (BuildBase)                                                                                                                               |
 | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Sign-in, sign-up, OTP and forgot-password forms that accept anything | Hosted sign-in (email, magic link, social, passkeys); every dashboard page requires a session                                                  |

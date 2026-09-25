@@ -12,7 +12,7 @@ Each folder is a complete app with its own README, a Deploy button and the exact
 
 **Sign-in for a Next.js app, and nothing else.** A hosted sign-in page, a session in an httpOnly cookie, and the user in client and server components. The smallest working integration.
 
-Own code · Next.js · about 5 minutes
+Own code · Next.js · about 5 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nextjs)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=with-buildbase&project-name=with-buildbase-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fwith-buildbase)
 
@@ -24,7 +24,7 @@ Own code · Next.js · about 5 minutes
 
 **Every chat message spends a credit.** Vercel's Chatbot with BuildBase sign-in, a starting balance per workspace, and the credit store when it runs out. Streaming, tools, artifacts and history are unchanged.
 
-Based on [vercel/chatbot](https://github.com/vercel/chatbot) (21k★, Apache-2.0) · Next.js · 15-25 minutes
+Based on [vercel/chatbot](https://github.com/vercel/chatbot) (21k★, Apache-2.0) · Next.js · 15-25 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nextjs)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-chatbot&project-name=ai-chatbot-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,AI_GATEWAY_API_KEY,POSTGRES_URL,BLOB_READ_WRITE_TOKEN,REDIS_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-chatbot)
 
@@ -34,7 +34,7 @@ Based on [vercel/chatbot](https://github.com/vercel/chatbot) (21k★, Apache-2.0
 
 **Pay per generated image.** roomGPT with its per-IP rate limit replaced by credits: 3 free on sign-up, 1 per room, checked before the model runs and charged only once the image exists. Runs in a labelled demo mode without a Replicate key.
 
-Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · Next.js · 15-20 minutes
+Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · Next.js · 15-20 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nextjs)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=ai-image-credits&project-name=ai-image-credits-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,REPLICATE_API_KEY&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fai-image-credits)
 
@@ -46,7 +46,7 @@ Based on [Nutlope/roomGPT](https://github.com/Nutlope/roomGPT) (10k★, MIT) · 
 
 **React Router v7, server-rendered.** The Epic Stack's passwords, onboarding, GitHub OAuth and passkeys replaced by BuildBase, and its 2FA removed. Its own sessions, permissions and notes app run unchanged on top, and the React SDK renders on the server for its account screens.
 
-Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.5k★, MIT) · React Router v7 · about 10 minutes
+Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.5k★, MIT) · React Router v7 · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-react-router)
 
 ## TanStack Start
 
@@ -56,7 +56,7 @@ Based on [epicweb-dev/epic-stack](https://github.com/epicweb-dev/epic-stack) (5.
 
 **BuildBase next to an existing auth library.** Start UI's email one-time code and GitHub sign-in replaced by BuildBase through a small better-auth plugin, so its sessions, admin screens and oRPC permission checks keep working. The React SDK's account screens sit on the account page.
 
-Based on [BearStudio/start-ui-web](https://github.com/BearStudio/start-ui-web) (1.7k★, MIT) · TanStack Start · about 10 minutes
+Based on [BearStudio/start-ui-web](https://github.com/BearStudio/start-ui-web) (1.7k★, MIT) · TanStack Start · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-tanstack-start)
 
 ## Teams, roles and billing
 
@@ -66,7 +66,7 @@ Based on [BearStudio/start-ui-web](https://github.com/BearStudio/start-ui-web) (
 
 **A SaaS starter without the plumbing.** The Next.js SaaS Starter with its hand-built auth, teams and Stripe code deleted: BuildBase workspaces, roles, plans, trials and checkout instead. No database, and half the TypeScript.
 
-Based on [nextjs/saas-starter](https://github.com/nextjs/saas-starter) (16k★, MIT) · Next.js · 15-20 minutes
+Based on [nextjs/saas-starter](https://github.com/nextjs/saas-starter) (16k★, MIT) · Next.js · 15-20 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nextjs)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=saas-starter&project-name=saas-starter-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fsaas-starter)
 
@@ -76,7 +76,7 @@ Based on [nextjs/saas-starter](https://github.com/nextjs/saas-starter) (16k★, 
 
 **A Vite admin dashboard, made real.** Shadcn Admin's mock sign-in, team switcher, users table and account forms, now backed by BuildBase. Also the example for apps that are not Next.js: three small serverless functions do the auth.
 
-Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k★, MIT) · Vite + React · about 10 minutes
+Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k★, MIT) · Vite + React · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-vite)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=admin-dashboard&project-name=admin-dashboard-buildbase&env=VITE_BUILDBASE_ORG_ID,VITE_BUILDBASE_CLIENT_ID,VITE_BUILDBASE_REDIRECT_URL,BUILDBASE_CLIENT_SECRET&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fadmin-dashboard)
 
@@ -86,7 +86,7 @@ Based on [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) (14k�
 
 **Astro on Cloudflare Workers, with roles.** Cloudflare's SaaS Admin Template leaves `/admin` open and hands its API token to the browser. Here one middleware requires a BuildBase sign-in and a seat in the admin's workspace: admins and editors change data, viewers read, everyone else is kept out.
 
-Based on [cloudflare/templates](https://github.com/cloudflare/templates/tree/main/saas-admin-template) `saas-admin-template` (2.1k★ repo, MIT) · Astro · about 15 minutes
+Based on [cloudflare/templates](https://github.com/cloudflare/templates/tree/main/saas-admin-template) `saas-admin-template` (2.1k★ repo, MIT) · Astro · about 15 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-astro)
 
 ## Plain Node.js servers
 
@@ -96,7 +96,7 @@ Based on [cloudflare/templates](https://github.com/cloudflare/templates/tree/mai
 
 **Express, Pug and no React.** Hackathon Starter's passwords, email links and passkeys replaced by BuildBase's hosted sign-in, driven from the server, and its 2FA removed. The API examples stay, and a BuildBase one joins them: workspaces and credits through the server SDK's `withSession()`.
 
-Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (35k★, MIT) · Express · about 10 minutes
+Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (35k★, MIT) · Express · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-express)
 
 ### [nestjs-boilerplate-api](nestjs-boilerplate-api)
 
@@ -104,7 +104,7 @@ Based on [sahat/hackathon-starter](https://github.com/sahat/hackathon-starter) (
 
 **A NestJS REST API, no UI.** The boilerplate's email/password, JWT refresh tokens and Apple, Facebook and Google login replaced by BuildBase: a client gets the hosted page URL, posts back the code, and uses the BuildBase session as its Bearer token. Roles, users and files are upstream's.
 
-Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★, MIT) · NestJS · about 10 minutes
+Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boilerplate) (4.4k★, MIT) · NestJS · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nestjs)
 
 ### [fastify-demo](fastify-demo)
 
@@ -112,7 +112,7 @@ Based on [brocoders/nestjs-boilerplate](https://github.com/brocoders/nestjs-boil
 
 **A metered Fastify API.** The Fastify team's own reference app with its email/password login and scrypt hashing replaced by a round trip through BuildBase's hosted sign-in. Creating a task spends a credit and answers 402 when the workspace is empty. Sessions, roles, uploads and the MySQL test suite are upstream's.
 
-Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify demo, MIT) · Fastify · about 10 minutes
+Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify demo, MIT) · Fastify · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-fastify)
 
 ## Any runtime
 
@@ -122,7 +122,7 @@ Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify d
 
 **One app on Node.js, Bun, Deno and Cloudflare Workers.** Hosted sign-in, the account and credit balance read with the server SDK, and a metered endpoint that answers 402 when the workspace is empty. No database: the session is a signed cookie, so it runs the same in a Worker.
 
-Own code · Hono · about 10 minutes
+Own code · Hono · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-hono)
 
 ## Moving from Clerk
 
@@ -132,7 +132,7 @@ Own code · Hono · about 10 minutes
 
 **The Clerk swap, done once so you can read the diff.** Next.js Boilerplate with Clerk's middleware, provider, sign-in, user profile and `currentUser()` replaced. i18n, Drizzle, Arcjet, Sentry and the strict lint setup are upstream's and still pass.
 
-Based on [ixartz/Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate) (13k★, MIT) · Next.js · about 10 minutes
+Based on [ixartz/Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate) (13k★, MIT) · Next.js · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-nextjs)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples&root-directory=nextjs-boilerplate&project-name=nextjs-boilerplate-buildbase&env=NEXT_PUBLIC_BUILDBASE_ORG_ID,NEXT_PUBLIC_BUILDBASE_CLIENT_ID,BUILDBASE_CLIENT_SECRET,NEXT_PUBLIC_BUILDBASE_REDIRECT_URL,DATABASE_URL&envDescription=Your%20org%20and%20auth%20client%20from%20the%20BuildBase%20console&envLink=https%3A%2F%2Fgithub.com%2Fbuildbase-app%2Fexamples%2Ftree%2Fmain%2Fnextjs-boilerplate)
 
