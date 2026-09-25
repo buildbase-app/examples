@@ -1,0 +1,46 @@
+# Rebuild the site whenever its BuildBase content changes.
+#
+# Copy this file to .github/workflows/ at the root of the repository that holds
+# the site. It runs on a push, by hand, and on a `repository_dispatch` of type
+# `buildbase-content`, which is what a BuildBase content webhook triggers
+# through the small relay described in the README.
+#
+# The org API token lives in this repository's secrets and is used only by the
+# build. The site that comes out of it is static HTML with no token in it.
+name: Build content
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [buildbase-content]
+
+permissions:
+  contents: read
+
+# A burst of edits in the console queues one rebuild, not one per edit.
+concurrency:
+  group: content-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      # `prebuild` runs `buildbase content pull`, then Vite renders the page.
+      - run: npm run build
+        env:
+          BUILDBASE_API_TOKEN: ${{ secrets.BUILDBASE_API_TOKEN }}
+          BUILDBASE_SERVER_URL: https://api.console.buildbase.app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
+      # Deploy `dist` with your host's action here: GitHub Pages, Cloudflare
+      # Pages, Netlify or an S3 bucket. It is plain static files.

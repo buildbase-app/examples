@@ -124,6 +124,22 @@ Based on [fastify/demo](https://github.com/fastify/demo) (the official Fastify d
 
 Own code · Hono · about 10 minutes · [Guide](https://www.buildbase.app/guides/buildbase-on-hono)
 
+## Content from BuildBase
+
+Blogs, docs, FAQs, testimonials, rich content and collection data are written in the console and read with an org API token, so they are read on a server or at build time, never in a browser. Both need `@buildbase/sdk` 0.0.72 or later.
+
+### [content-hono](content-hono)
+
+**A blog, a help centre and a changelog, rendered on the server.** Every read goes through `@buildbase/sdk/server`, which caches it, revalidates with ETags so an unchanged page costs one `304`, and drops exactly what changed when BuildBase sends a content webhook. The token never leaves the server.
+
+Own code · Hono on Node.js or Cloudflare Workers · about 10 minutes
+
+### [content-static](content-static)
+
+**A static site with no backend.** `buildbase content pull` writes the published content to a JSON file during the build, and the site ships as plain HTML with no script and no token. A GitHub Actions workflow rebuilds it when a content webhook fires, and the README shows the same loop with `curl` for any other static site generator.
+
+Own code · Vite, or any static site generator · about 5 minutes
+
 ## Moving from Clerk
 
 ### [nextjs-boilerplate](nextjs-boilerplate)

@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers: `npm run dev:workers` locally, `npm run deploy:workers` to ship.
+  // Put BUILDBASE_API_TOKEN and BUILDBASE_WEBHOOK_SECRET in with `wrangler secret put`.
+  // Locally, .dev.vars holds them.
+  //
+  // Each Worker isolate keeps its own in-memory cache. For a cache shared by
+  // every isolate, bind a KV namespace as CONTENT_CACHE and the app uses it:
+  // "kv_namespaces": [{ "binding": "CONTENT_CACHE", "id": "<your namespace id>" }]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "content-hono-buildbase",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-09-01",
+}

@@ -1,0 +1,21 @@
+{
+  "name": "content-static-buildbase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "content": "node scripts/pull-content.mjs",
+    "prebuild": "npm run content",
+    "build": "vite build",
+    "dev": "npm run content && vite",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@buildbase/sdk": "^0.0.72",
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
+  }
+}

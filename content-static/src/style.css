@@ -1,0 +1,37 @@
+body {
+  font:
+    16px/1.6 system-ui,
+    sans-serif;
+  max-width: 44rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #1f2328;
+}
+.muted {
+  color: #6e7781;
+  font-size: 0.9rem;
+}
+section {
+  margin: 2.5rem 0;
+}
+details {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  margin: 0.5rem 0;
+}
+blockquote {
+  border-left: 3px solid #d0d7de;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+code {
+  background: #f6f8fa;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+}
+.setup {
+  border: 1px dashed #d0d7de;
+  border-radius: 6px;
+  padding: 1rem;
+}

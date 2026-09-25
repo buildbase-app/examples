@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+# Written by `npm run content` on every build. It is your published content,
+# so it is not committed.
+src/content.json
