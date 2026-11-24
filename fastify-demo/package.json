@@ -36,7 +36,7 @@
     "url": "https://github.com/fastify/demo/issues"
   },
   "dependencies": {
-    "@buildbase/sdk": "^0.0.70",
+    "@buildbase/sdk": "^1.7.0",
     "@fastify/autoload": "^6.4.0",
     "@fastify/cookie": "^11.1.2",
     "@fastify/cors": "^11.3.0",

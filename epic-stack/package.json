@@ -35,7 +35,7 @@
     "/playwright-report"
   ],
   "dependencies": {
-    "@buildbase/sdk": "^0.0.70",
+    "@buildbase/sdk": "^1.9.0",
     "@conform-to/react": "^1.16.0",
     "@conform-to/zod": "^1.16.0",
     "@epic-web/cachified": "^5.6.1",
